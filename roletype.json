@@ -1,0 +1,58 @@
+{
+  "shortlist": [
+    
+    "town",
+    "mafia",
+    "neutral",
+    "unique",
+    "factional",
+    "cult",
+    
+    "investigative",
+    "protective",
+    "killing",
+    "support",
+    "deception",
+    "evil",
+    "benign",
+    "chaos",
+    "conversion"
+    
+  ],
+  "alias": {
+    
+    "town": "t",
+    "mafia": "m",
+    "neutral": "n",
+    "unique": "u",
+    "factional": "f",
+    "cult": "c",
+    
+    "investigative": "i",
+    "protective": "p",
+    "killing": "k",
+    "support": "s",
+    "deception": "d",
+    "evil": "e",
+    "benign": "b",
+    "chaos": "c",
+    "conversion": "c"
+  },
+  "categories": [
+    "mafia",
+    "mk",
+    "md",
+    "ms",
+    "neutral",
+    "nk",
+    "ne",
+    "nb",
+    "nc",
+    "town",
+    "ti",
+    "tp",
+    "tk",
+    "ts",
+    "any"
+  ]
+}
