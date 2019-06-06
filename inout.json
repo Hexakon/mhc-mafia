@@ -1,0 +1,73 @@
+{
+  "out": [
+    ["Thinking quickly, "," bought a ticket and left in a hurry."],
+    [""," unexpectedly checked out from the hotel a few days too early."],
+    [""," vanished without a trace! Oh, wait, he just called a taxi out of here."],
+    [""," moved out without a word. Maybe they'll come back?"],
+    [""," sneaked out in the moonless night to explore unknown territory."],
+    [""," bid farewell to each and every person they knew and only took the next train out of town two days later."],
+    ["We're sorry to see you leave, ","!"],
+    ["Those who knew "," called them a wild adventurer at heart. We can only wish them luck on their next journey."],
+    [""," proudly announced their departure and made sure everyone has heard the news before actually leaving."],
+    [""," checked out."],
+    [""," moved out in a hurry. No man truly knows where they are headed next."],
+    [""," seemingly abandoned their house in the middle of the day. The food is getting cold..."],
+    ["","'s footprints ended abruptly at the edge of town, as if they had disappeared into thin air."]
+  ],
+  
+  "hug": [
+    "Thank you for being there...",
+    "You're awesome, you know that?",
+    "That's really sweet...",
+    "Everything will be okay...",
+    "Not so tight, not so tight...",
+    "Aww...",
+    "Get a room, you two! >///<"
+  ],
+  
+  "hit": [
+    "That's gotta sting.",
+    "Ouch.",
+    "Oof.",
+    "Ow.",
+    "Jeez, that hurt.",
+    "Hah, is that all you got?",
+    "Square up!",
+    "Critical hit!!!"
+  ],
+  
+  "slap": [
+    "B-baka!!",
+    "No! Bad!",
+    "Ouch.",
+    "Oof.",
+    "Ow~",
+    "~~With kimchi for dramatic effect~~"
+  ],
+  
+  "handshake": [
+    "And prolonged eye contact for extra reassurance.",
+    "It was a pleasure.",
+    "\\*ahem* Purely business.",
+    "A firm grasp is a good deal.",
+    "Wait, ow, you're grabbing too hard-"
+  ],
+  
+  "spray": [
+    "No! Bad!",
+    "Stay off!",
+    "Wrong!",
+    "Cease!",
+    "Don't even think about it!",
+    "I have the power of god and anime on my side!"
+  ],
+  
+  "pat": [
+    "uwu",
+    "ùwú",
+    "Critical pat!!!",
+    "Pet? Pat? Pot?",
+    "Aww...",
+    "Get a room, you two! >///<"
+  ]
+}

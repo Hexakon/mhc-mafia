@@ -1,0 +1,420 @@
+{
+  "ambusher": {
+    "name": "Ambusher (amb)",
+    "alignment": "Mafia Killing",
+    "ability": "- Hide outside a player's house, dealing a Normal Attack towards one random visitor.",
+    "attribute": "- __Last MK:__ Attack all visitors with a Special Attack.\n- Access to Mafia chat."
+  },
+  "anesthetist": {
+    "name": "Anesthetist (anes)",
+    "alignment": "Mafia Deception",
+    "ability": "- Drug a player, hiding all status messages that they should have gotten that night.",
+    "attribute": "- Access to Mafia chat."
+  },
+  "blackmailer": {
+    "name": "Blackmailer (bm)",
+    "alignment": "Mafia Support",
+    "ability": "- Blackmail a player, preventing them from talking in any channel for 24 hours.",
+    "attribute": "- See content of every whisper.\n- Access to Mafia chat."
+  },
+  "consort": {
+    "name": "Consort",
+    "alignment": "Mafia Support",
+    "ability": "- Roleblock a player.",
+    "attribute": "- Will know if target has roleblock immunity.\n- Will die if roleblocking a Serial Killer or a Demoman with a bomb.\n- Roleblock Immunity\n- Access to Mafia chat."
+  },
+  "coroner": {
+    "name": "Coroner",
+    "alignment": "Mafia Deception",
+    "ability": "- Forge the death cause of a player, if they die on the same night.",
+    "attribute": "- Forging more than twice will reveal that there is a Coroner in-game.\n- Access to Mafia chat."
+  },
+  "disguiser": {
+    "name": "Disguiser (disg)",
+    "alignment": "Mafia Deception",
+    "ability": "- Select a player to disguise as their role.\n- If target dies on the same night, target will appear as Disguiser (first disguise) or previous disguise.",
+    "attribute": "- Disguise is displayed to Detectives, Sheriffs and Secretaries.\n- Disguise is displayed in logbook entries.\n- Access to Mafia chat."
+  },
+  "forger": {
+    "name": "Forger",
+    "alignment": "Mafia Deception",
+    "ability": "- Forge the Last Will of up to 2 players.",
+    "attribute": "- Ability will not be consumed if target dies at daytime.\n- Control Immunity\n- Roleblock Immunity\n- Access to Mafia chat."
+  },
+  "framer": {
+    "name": "Framer",
+    "alignment": "Mafia Deception",
+    "ability": "- Targeting non-Mafia: Frame a player to make them appear as a Framer to Sheriffs and Detectives.\n- Targeting Mafia/Self: Clean a player to give them Detection Immunity against Sheriffs.",
+    "attribute": "- Access to Mafia chat."
+  },
+  "godfather": {
+    "name": "Godfather (gf)",
+    "alignment": "Mafia Killing",
+    "ability": "- Order the Mafioso to attack a player.\n- Attack the chosen target if Mafioso cannot attack",
+    "attribute": "- Detection Immunity\n- Night Immunity\n- Access to Mafia chat."
+  },
+  "hypnotist": {
+    "name": "Hypnotist (hypno)",
+    "alignment": "Mafia Deception",
+    "ability": "- Give a player a fake status message of your own choice.",
+    "attribute": "- Access to Mafia chat.",
+    "extra": "**See also:**\nStatus messages that the Hypnotist can create: `.r hypno list`",
+    "subtext": {
+      "list": [
+        "Status messages that the Hypnotist can create:",
+        ":taxi: **A Driver moved you to another location.**\n:no_pedestrians: **Someone occupied your night. You were roleblocked!**\n:warning: **You have been poisoned and will die tomorrow!**\n:syringe: **You were poisoned but someone nursed you back to health!**\n:syringe: **You were attacked but someone nursed you back to health!**\n:shield: **Someone tried to attack you but were fought off!**\n:shield: **Someone tried to poison you but were fought off!**\n:sparkles: **You feel a mystical power dominating you. You were controlled by a Witch!**\n:cyclone: **You were drugged by an Anesthetist!**\n:dagger: **You are being held hostage by a Kidnapper!**"]
+    }
+  },
+  "inspector": {
+    "name": "Inspector",
+    "alignment": "Mafia Support",
+    "ability": "- Inspect a player to know their exact role.",
+    "attribute": "- Access to Mafia chat."
+  },
+  "janitor": {
+    "name": "Janitor",
+    "alignment": "Mafia Deception",
+    "ability": "- If target dies on same night, destroy their role and Last Will. 3 uses.\n- If successful, see target's role.",
+    "attribute": "- Access to Mafia chat."
+  },
+  "kidnapper": {
+    "name": "Kidnapper (kid/kidn)",
+    "alignment": "Mafia Support",
+    "ability": "- Hold a player as hostage.\n- If killed by any cause, hostage will be dealt an Unstoppable attack immedately.",
+    "attribute": "- Target will know they are being held hostage.\n- Can only hold 1 player hostage at a time.\n- Attack bypass all protections and immunities.\n- Access to Mafia chat."
+  },
+  "lurker": {
+    "name": "Lurker",
+    "alignment": "Mafia Support",
+    "ability": "- Watch a player to see who they visit and who visits them.",
+    "attribute": "- Access to Mafia chat."
+  },
+  "machinist": {
+    "name": "Machinist (mac/mach)",
+    "alignment": "Mafia Killing",
+    "ability": "- Give yourself Special Immunity and killing all incoming visitors, 3 uses.\n- __Last MK:__ Send the machine to someone else's house, killing them and all their visitors.",
+    "attribute": "- __Last MK:__ Gain 2 more uses.\n- Control Immunity\n- Roleblock Immunity\n- Access to Mafia chat."
+  },
+  "mafioso": {
+    "name": "Mafioso (maf)",
+    "alignment": "Mafia Killing",
+    "ability": "- Ordered: Kill Godfather's target.\n- No order: kill a player of own choice.",
+    "attribute": "- Promoted to Godfather if Godfather dies.\n- Access to Mafia chat."
+  },
+  "masquerader": {
+    "name": "Masquerader (mas)",
+    "alignment": "Mafia Deception",
+    "ability": "- Redirect visitors of yourself to another player. 3 uses.",
+    "attribute": "- Cannot redirect Lunatic attacks.\n- Access to Mafia chat."
+  },
+  "poisoner": {
+    "name": "Poisoner",
+    "alignment": "Mafia Killing",
+    "ability": "- Poison a player, killing them on the next night. Odd nights only.",
+    "attribute": "- Poisoned players are roleblocked on the second night, unless they are a Doctor and can self-heal.\n- Poisoned players will be dealt an Unstoppable Attack on the second night if they are not healed by a Doctor on any two nights.\n- Will know if and when the victim was healed.\n- __Last MK:__ Cooldown removed.\n- Access to Mafia chat."
+  },
+  
+  
+  
+  "amnesiac": {
+    "name": "Amnesiac (amne)",
+    "alignment": "Neutral Benign",
+    "ability": "- Choose a role from a dead player and become that role.",
+    "attribute": "- Cannot become unique Town roles.\n- Cannot become unique non-Town roles if already occupied.\n- Role choice will be announced. \n- Control Immunity\n- Roleblock Immunity",
+    "goal": "Take on a role and complete it's goal."
+  },
+  "anomaly": {
+    "name": "Anomaly",
+    "alignment": "Neutral Chaos",
+    "ability": "- Switch roles with a player. Even nights only.\n- Attack a player. Odd nights only.",
+    "attribute": "- If roleblocked on an even night, switch roles with the roleblocker.\n- Detection Immunity",
+    "goal": "Switch into another role and complete their goal."
+  },
+  "arsonist": {
+    "name": "Arsonist (arso)",
+    "alignment": "Neutral Killing",
+    "ability": "- Douse a player.\n- Ignite and kill all doused players.\n- Undouse self.",
+    "attribute": "- If no action is taken, defaults to undouse self.\n- Cannot be killed by Bodyguards.\n- Detection Immunity",
+    "goal": "Kill anyone who opposes you."
+  },
+  "bountyhunter": {
+    "name": "Bounty Hunter (bh)",
+    "alignment": "Neutral Evil",
+    "ability": "- Game start: Get a random townie as target.",
+    "attribute": "- If target dies at night, become a Lunatic.\n- Target can never be Interrogator, Mayor or Marshal.\n- Detection Immunity.\n- Night Immunity.",
+    "goal": "Get your target lynched at all costs."
+  },
+  "cultist": {
+    "name": "Cultist",
+    "alignment": "Neutral Chaos",
+    "ability": "- Vote to convert a player into a Cultist, if there wasn't a successful conversion last night.\n- Youngest cultsit: Visit target to perform conversion.",
+    "attribute": "- Mafia members, Jigsaw and Anomaly will be killed instead of converted.\n- Cannot convert Exorcist or anyone with Night Immunity.\n- Detection Immunity\n- Access to Cult chat.",
+    "goal": "Kill anyone who opposes the Cult."
+  },
+  "delinquent": {
+    "name": "Delinquent (del)",
+    "alignment": "Neutral Evil",
+    "ability": "- Knock out a player to convert their role to Amnesiac. 2 uses.",
+    "attribute": "- Cannot knock out players with Night Immunity.\n- Detection Immunity",
+    "goal": "Survive to see Town lose."
+  },
+  "demoman": {
+    "name": "Demoman (dem)",
+    "alignment": "Neutral Killing",
+    "ability": "- Bomb ready: Blow up a player's house, deal a Special attack towards the target and all their visitors.\n- Bomb ready: Can also choose to booby trap own house to blow up incoming visitors. Trap will not be removed once set until activated.\n- Bomb not ready: Spend 1 night to build the bomb.",
+    "attribute": "- If roleblocked with bomb in hand, blow up the roleblocker.\n- If roleblocked without a bomb, delay building to the next night.\n- Night Immunity\n- Detection Immunity",
+    "goal": "Kill anyone who opposes you."
+  },
+  "guardianangel": {
+    "name": "Guardian Angel (ga)",
+    "alignment": "Neutral Benign",
+    "ability": "- Game start: Get a random player as target.\n- Purge target, 2 uses.",
+    "attribute": "- Purging the target will instantly Heal and undouse them.\n- Everyone will know that the target was purged on the following day.\n- Can continue to use abilities even after death.\n- Target cannot be Lunatic, Bounty Hunter, Bodyguard or another Guardian Angel.\n- If target dies, become Survivor with 1 barricade.\n- Control Immunity\n- Roleblock Immunity",
+    "goal": "Make sure target survives to the end."
+  },
+  "hitman": {
+    "name": "Hitman",
+    "alignment": "Neutral Chaos",
+    "ability": "- Daytime: Send a contract to a player.\n- Nighttime: Kill the client's target.",
+    "attribute": "- If contract was successful, cannot contract the same player again.\n- If client orders to attack yourself, contract will be cancelled.\n- Client can refuse the contract.\n- Detection Immunity",
+    "goal": "Complete 3 contracts."
+  },
+  "jigsaw": {
+    "name": "Jigsaw",
+    "alignment": "Neutral Chaos",
+    "ability": "- Daytime: Choose a player to kidnap.\n- Nighttime: Play rock-paper-scissors against your victim.",
+    "attribute": "- If Jigsaw win, victim dies to an Unstoppable attack.\n- If victim win, victim will know Jigsaw's name.\n- If tie, nothing happens.\n- Victim has Special Immunity during the game, but also roleblocked and cannot talk anywhere.\n- Cannot kidnap Interrogator's target.\n- Detection Immunity",
+    "goal": "Kill 2 people."
+  },
+  "juggernaut": {
+    "name": "Juggernaut (jugg)",
+    "alignment": "Neutral Killing",
+    "ability": "- Level up with every successful kill.\n- Level 1: Attack a player. Odd nights only.\n- Level 2: Attack a player on any night.\n- Level 3: Can now deal Special Attacks.\n- Level 4: Deal Special Attack towards target and all their visitors.",
+    "attribute": "- Level 1: + Detection Immunity\n- Level 2: + Night Immunity\n- Level 3: + Special Immunity\n- Level 4: + If roleblocked, kill roleblockers.",
+    "goal": "Kill everyone who opposes you."
+  },
+  "lunatic": {
+    "name": "Lunatic",
+    "alignment": "Neutral Evil",
+    "ability": "- When goal is met, must kill one guilty voter.",
+    "attribute": "- Unstoppable attack.\n- Attack cannot be swapped or redirected.\n- Detection Immunity",
+    "goal": "Get yourself lynched at all costs."
+  },
+  "secretary": {
+    "name": "Secretary (sec)",
+    "alignment": "Neutral Benign",
+    "ability": "- Choose a faction from a dead player and side with that faction.\n- After siding: Investigate a player to see their intention towards the sided faction.",
+    "attribute": "- Faction choice will be announced.\n- Roles with Detection Immunity will always be seen as harmless.\n- Control Immunity\n- Roleblock Immunity",
+    "goal": "Make sure the chosen faction wins."
+  },
+  "serialkiller": {
+    "name": "Serial Killer (sk)",
+    "alignment": "Neutral Killing",
+    "ability": "- Attack players.",
+    "attribute": "- If roleblocked, kill the roleblocker.\n- Know the name of every other Serial Killer in the game.\n- Night Immunity",
+    "goal": "Kill everyone who opposes you."
+  },
+  "stalker": {
+    "name": "Stalker (st/stalk)",
+    "alignment": "Neutral Chaos",
+    "ability": "- Game start: Get a random townie or mafia as Obsession.\n- Level up for each successful protection.\n- If the Obsession dies, instantly level up.",
+    "attribute": "- All kills will appear as Serial Killer attacks.\n- Can *never* attack their Obsession.",
+    "goal": "Kill everyone who opposes you, *except* the Obsession who can be spared.",
+    "extra": "**Note:** The Stalker is a highly experimental role and can be extremely unbalanced. Any game which contains the Stalker can be voted to not be logged in the bulletin board.\n**See Also:**\nInformation of each Level: `.r st <level>`",
+    "subtext": {
+      "1": [
+        "Stalker - Level 1",
+        "(Night Immunity & Detection Immunity)\n\nThe Stalker can choose to either attack a player like a Serial Killer, or watch the Obsession.\nIf the Obsession is attacked by anything weaker than Unstoppable, the Stalker will give the Obsession Special Immunity, and deal a Normal Attack towards the attacker."
+      ],
+      "2": [
+        "Stalker - Level 2",
+        "(Night Immunity & Detection Immunity & Roleblock Immunity)\n\nThe Stalker will now counterattack roleblockers, similar to a Serial Killer."
+      ],
+      "3": [
+        "Stalker - Level 3",
+        "(SPECIAL Immunity & Control Immunity & Roleblock Immunity)\n\nOnce the Stalker reaches Level 3, the Obsession will instantly know that they have a Stalker.\nThe Stalker will now deal a Special Attack towards their victim.\n"
+      ],
+      "4": [
+        "Stalker - Level 4",
+        "(SPECIAL Immunity & Control Immunity & Roleblock Immunity)\n\nOnce the Stalker reaches Level 4, the Logbook will announce this event.\nThe Stalker will now also attack their victim's visitors, similar to a Demoman.\nThe Stalker will no longer be able to protect the Obsession, meaning the only way to level up is to kill the Obsession, but only by the hands of other players."
+      ],
+      "5": [
+        "Stalker - Level 5 (FINAL)",
+        "(INVINCIBILITY)\n\nOnce the Stalker reaches Level 5, the Logbook will announce this event.\nThe Stalker will now deal Unstoppable Attacks towards their victim and also all their visitors."
+      ]
+    }
+  },
+  "survivor": {
+    "name": "Survivor (surv)",
+    "alignment": "Neutral Benign",
+    "ability": "- Barricade the house. 4 uses.",
+    "attribute": "- Night Immunity when barricaded.",
+    "goal": "Survive to the end of the game."
+  },
+  "witch": {
+    "name": "Witch",
+    "alignment": "Neutral Evil",
+    "ability": "- Control a player, forcing them to visit another player.",
+    "attribute": "- Victims won't know who they were forced to visit.\n- Will know victim's role.\n- Will know if victim has Control Immunity.\n- If converted by Cult, become Sorceress.\n- Night Immunity *until* attacked once.\n- Detection Immunity\n- Control Immunity\n- Roleblock Immunity",
+    "goal": "Survive to see Town lose."
+  },
+  
+  
+  
+  "agent": {
+    "name": "Agent",
+    "alignment": "Town Investigative",
+    "ability": "- Spy on a player to see the roles of their visitors that night.\n- See the names of those the Mafia visited.",
+    "attribute": "- None."
+  },
+  "attorney": {
+    "name": "Attorney (att)",
+    "alignment": "Town Support",
+    "ability": "- Select a player to remove their name from next day's trial.\n- Max 3 uses.",
+    "attribute": "- None."
+  },
+  "bodyguard": {
+    "name": "Bodyguard (bg)",
+    "alignment": "Town Protective",
+    "ability": "- Guard a player, giving them Special Immunity.\n- Give self Night Immunity, 1 use.",
+    "attribute": "- If target is attacked, deal a Special attack to the attacker, but die in the process."
+  },
+  "crusader": {
+    "name": "Crusader (crus)",
+    "alignment": "Town Protective",
+    "ability": "- Guard a player, dealing a normal attack towards all their visitors.",
+    "attribute": "- None."
+  },
+  "detective": {
+    "name": "Detective (det)",
+    "alignment": "Town Investigative",
+    "ability": "- Investigate a player to get a hint to their role.",
+    "attribute": "- None.",
+    "extra": "**See also:**\nPossible investigation results: `.role det results`",
+    "subtext": {
+      "results": [
+        "Detective Investigation Results",
+        "\nYour target...\n\n**carries firearm:** Enforcer / Veteran / Mafioso / Ambusher / Hitman\n**knows your secrets:** Agent / Interrogator / Landlord / Blackmailer / Jigsaw\n**will always get things their way:** Escort / Driver / Consort / Masquerader / Hypnotist\n**keeps to themselves:** Lookout / Tracker / Exorcist / Lurker / Witch / Stalker\n**carries sensitive information:** Detective / Mayor / Marshal / Inspector / Forger\n **believes in the greater good:** Bodyguard / Crusader / Godfather / Machinist / Cultist / Arsonist\n**is a relentless persuader:** Sheriff / Attorney / Kidnapper / Bounty Hunter / Demoman / Delinquent\n**has a strange relation to the concept of death:** Medium / Resurrector / Janitor / Coroner / Survivor / Guardian Angel\n**knows where it hurts the most:** Doctor / Anesthetist / Poisoner / Serial Killer / Amnesiac\n**is not who they claim to be:** Framer / Disguiser / Lunatic / Anomaly / Secretary / Juggernaut"
+      ]
+    }
+  },
+  "doctor": {
+    "name": "Doctor (doc)",
+    "alignment": "Town Protective",
+    "ability": "- Heal a player, granting them Special Immunity and also cure them of poison.\n- Heal thyself, 1 use.",
+    "attribute": "- None."
+  },
+  "driver": {
+    "name": "Driver",
+    "alignment": "Town Support",
+    "ability": "- Switch 2 players, redirecting all actions towards one player to target the other and vice versa.",
+    "attribute": "- Control immunity.\n- Roleblock immunity.\n- Cannot redirect Lunatic attacks."
+  },
+  "enforcer": {
+    "name": "Enforcer (enf)",
+    "alignment": "Town Killing",
+    "ability": "- Shoot a player. 3 uses.",
+    "attribute": "- Cannot shoot on the first night.\n- Killing a Townie will empty all uses."
+  },
+  "escort": {
+    "name": "Escort (esc)",
+    "alignment": "Town Support",
+    "ability": "- Roleblock a player.",
+    "attribute": "- Will know if target has roleblock immunity.\n- Will die if roleblocking a Serial Killer or a Demoman with a bomb.\n- Roleblock Immunity"
+  },
+  "exorcist": {
+    "name": "Exorcist (ex)",
+    "alignment": "Town Killing",
+    "ability": "- Visit a player to watch for Cultists.",
+    "attribute": "- If target is a Cultist, kill target.\n- If visited by a Cultist, kill the visiting Cultist.\n- If target was visited by a Cultist, kill the visiting Cultist.\n- If all Cultists are dead, become an Enforcer with 2 bullets."
+  },
+  "interrogator": {
+    "name": "Interrogator (int)",
+    "alignment": "Town Killing",
+    "ability": "- Day: Kidnap a player for interrogation.\n- Night: Execute the target. 3 uses.",
+    "attribute": "- Can talk with target anonymously at night.\n- Target cannot talk anywhere else during interrogation.\n- Target has Special Immunity during interrogation.\n- Cannot execute on the first night."
+  },
+  "landlord": {
+    "name": "Landlord (ll)",
+    "alignment": "Town Protective",
+    "ability": "- Restrict a player's property and ban entry from 2 role alignments.",
+    "attribute": "- None."
+  },
+  "lookout": {
+    "name": "Lookout (lo)",
+    "alignment": "Town Investigative",
+    "ability": "- Watch a player to see the names of their visitors that night.",
+    "attribute": "- None."
+  },
+  "marshal": {
+    "name": "Marshal (mar)",
+    "alignment": "Town Support",
+    "ability": "- Reveal role in public and call for group lynch on the day of reveal, 1 use.\n- Call for group lynch post-reveal, 1 use.",
+    "attribute": "- Group lynch will lynch 3 top-voted players instead of 1.",
+    "extra": "**Note:** Cannot exist in the same game as Mayor."
+  },
+  "mayor": {
+    "name": "Mayor",
+    "alignment": "Town Support",
+    "ability": "- Reveal role in public.",
+    "attribute": "- After revealing, your votes in trial counts as 3.",
+    "extra": "**Note:** Cannot exist in the same game as Marshal."
+  },
+  "medium": {
+    "name": "Medium (med)",
+    "alignment": "Town Support",
+    "ability": "- While alive: Talk to dead people at night.\n- While dead: Select a player to talk to them in private for a night. 1 use.",
+    "attribute": "- None."
+  },
+  "resurrector": {
+    "name": "Resurrector (res)",
+    "alignment": "Town Support",
+    "ability": "- While alive: Resurrect a dead player. 1 use.",
+    "attribute": "- None."
+  },
+  "sheriff": {
+    "name": "Sheriff",
+    "alignment": "Town Investigative",
+    "ability": "- Interrogate a player to check for suspicious activities.",
+    "attribute": "- Can detect Mafia members.\n- Can detect Serial Killers.\n- Can detect Stalkers at Level 3 and above."
+  },
+  "tracker": {
+    "name": "Tracker",
+    "alignment": "Town Investigative",
+    "ability": "- Follow a player to see who they are visiting.",
+    "attribute": "- None."
+  },
+  "veteran": {
+    "name": "Veteran (vet)",
+    "alignment": "Town Killing",
+    "ability": "- Go on Alert, giving yourself Special Immunity and killing all incoming visitors. 3 uses.",
+    "attribute": "- Control Immunity\n- Roleblock Immunity"
+  },
+  
+  
+  
+  "cultleader": {
+    "name": "Cult Leader (cl)",
+    "alignment": "Cult Killing",
+    "ability": "- Attack a player.\n- Decide who to sacrifice.",
+    "attribute": "- Control Immunity\n- Roleblock Immunity\n- Access to Cult chat."
+  },
+  "monk": {
+    "name": "Monk",
+    "alignment": "Cult Support (from Bodyguard, Crusader, Landlord)",
+    "ability": "- Day: Fasten talismen on a player's house.",
+    "attribute": "- Victim cannot talk or perform action during the night.\n- All actions targeting the victim will fail.\n- Talisman cannot be counter-attacked.\n- Cannot select kidnapped players.\n- Access to Cult chat."
+  },
+  "nurse": {
+    "name": "Nurse (nur)",
+    "alignment": "Cult Conversion (from Doctor)",
+    "ability": "- Curse a player. 2 uses.",
+    "attribute": "- Victims won't know they are cursed.\n- When a cursed player is killed at night, they will be instantly resurrected and converted.\n- Detection Immunity\n- Control Immunity\n- Roleblock Immunity\n- Access to Cult chat."
+  },
+  "sorceress": {
+    "name": "Sorceress (sorc)",
+    "alignment": "Cult Support (from Witch)",
+    "ability": "- Control a player, forcing them to visit another player.",
+    "attribute": "- Victims won't know who they were forced to visit.\n- Will know victim's role.\n- Will know if victim has Control Immunity.\n- Night Immunity *until* attacked once.\n- Detection Immunity\n- Control Immunity\n- Roleblock Immunity\n- Access to Cult chat."
+  }
+}
