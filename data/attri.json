@@ -1,9 +1,7 @@
 {
   "muted": [
-    "",
-    null
   ],
-  "exe": true,
+  "exe": false,
   "night": false,
   "revealed": false
 }
