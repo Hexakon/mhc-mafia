@@ -1,4 +1,4 @@
-// ALIAS COMMAND TO .lastwill
+// ALIAS COMMAND TO .getwill
 
 exports.run = (client, message, args) => {
    try {
