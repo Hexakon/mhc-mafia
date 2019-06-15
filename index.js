@@ -8,6 +8,7 @@ expressApp.get("/", (req, res) => res.json("OK"))
 expressApp.listen(process.env.PORT)
 
 let prefix = ".";
+let hostprefix = "-";
 
 //client.on & other events
 client.on("ready", () => {
@@ -96,18 +97,28 @@ client.on("message", (message) => { // split command message into base (cmd) and
   }
   
   if (message.author.bot) return;
-  if (message.content.indexOf(prefix) !== 0) return;
   
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const cmd = args.shift().toLowerCase();
   
+  // return if user is attempting to seek path
+  if (cmd.charAt(0) === ".") return;
+  
   // command handler
+  if (message.content.indexOf(prefix) === 0) {
    try {
     let cmdFile = require(`./cmd/${cmd}.js`);
     cmdFile.run(client, message, args);
-  } catch (err) {
+   } catch (err) {
     console.error(err);
-  }
+   }
+  } else if (message.content.indexOf(hostprefix) === 0) {
+   try {
+    let cmdFile = require(`./hostcmd/${cmd}.js`);
+    cmdFile.run(client, message, args);
+   } catch (err) {
+    console.error(err);
+   }
 });
 
 client.login(token);
