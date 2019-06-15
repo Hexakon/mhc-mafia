@@ -8,12 +8,12 @@ exports.run = (client, message, args) => {
   let dataID = data.id
   let dataPP = data.pp
   
-  const dataRL = require("./../data/rl.json");
-  const dataRL_fn = __dirname + "/../data/rl.json";
+  const dataST = require("./../data/setup.json");
+  const dataST_fn = __dirname + "/../data/setup.json";
   const roletype = require("./../roletype.json");
   
-  let old = dataRL.rolelist
-  dataRL.rolelist = args
-  message.channel.send("**Role list saved as: **"+dataRL.rolelist+"\n\n*Was: "+old+"*");
-  fs.writeFile(dataRL_fn, JSON.stringify(dataRL, null, 2), function (err) {if (err) return console.log(err);});
+  let old = dataST.rolelist
+  dataST.rolelist = args
+  message.channel.send("**Role list saved as: **"+dataST.rolelist+"\n\n*Was: "+old+"*");
+  fs.writeFile(dataST_fn, JSON.stringify(dataST, null, 2), function (err) {if (err) return console.log(err);});
 }
