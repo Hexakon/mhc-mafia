@@ -16,7 +16,7 @@ exports.run = (client, message, args) => {
   const passList = rolePass.members;
   
   const roles = require("./../roles.json");
-  const dataRL = require("./../data/rl.json");
+  const dataST = require("./../data/setup.json");
   const nicks = require("./../nicks.json");
   
   const roletype = require("./../roletype.json");
@@ -53,7 +53,7 @@ exports.run = (client, message, args) => {
         let keys = Object.keys(dataPP); // lowercase alphabet
         let displaylist = ""; // rolelist to be displayed in a readable format
         let rolelist = []; // empty list that is to be filled with the final role list
-        let primelist = dataRL.rolelist; // get the saved rolelist.
+        let primelist = dataST.rolelist; // get the saved rolelist.
         
         for (let sf of deck) {
           user = passList.get(sf);
