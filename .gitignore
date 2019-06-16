@@ -1,7 +1,3 @@
-# Game-specific data
-data/
-
-
 # Logs
 logs
 *.log
