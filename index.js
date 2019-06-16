@@ -119,6 +119,7 @@ client.on("message", (message) => { // split command message into base (cmd) and
    } catch (err) {
     console.error(err);
    }
+  }
 });
 
 client.login(token);
