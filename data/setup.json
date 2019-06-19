@@ -1,6 +1,25 @@
 {
   "rolelist": [
   ],
-  "w": true,
-  "lw": true
+  "whisper": true,
+  "lastwill": true,
+  "nightchat": true,
+  "deathcause": "show",
+
+  "mafia": {
+    "chat": 1,
+    "letter": true
+  },
+  "cult": {
+    "chat": 1,
+    "letter": true
+  },
+  "triad": {
+    "chat": 1,
+    "letter": true
+  },
+  "fox": {
+    "chat": 1,
+    "letter": true
+  }
 }
