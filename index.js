@@ -67,7 +67,7 @@ client.on("message", (message) => { // split command message into base (cmd) and
     client.channels.get(dataPP[valid("interrogator")]).send(":microphone2: **"+message.member.displayName+"**: *"+message.content+"*");
   }
   if (message.channel.id == dataCH.dead && message.author.bot == false && dataAT.night == true) { // AFTERLIFE MIRROR
-    for (var i=0; i < v.check("medium").length; i++) {
+    for (var i=0; i < valid("medium").length; i++) {
       client.channels.get(dataPP[valid("medium")]).send(":crystal_ball: **"+message.member.displayName+"**: *"+message.content+"*");
     }
   }
