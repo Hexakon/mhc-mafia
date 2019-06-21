@@ -12,28 +12,26 @@ let hostprefix = "-";
 
 //client.on & other events
 client.on("ready", () => {
-  const dataCH = require("./data/ch.json");
-  client.guilds.get('442612372553728010').channels.get(dataCH.trial).fetchMessages({limit:1})
   console.log("I am ready!");
   client.user.setPresence({ game: { name: 'MHC:Mafia v0.1.34' }, status: 'online' })
 });
 
 process.on('exit', (code) => {
   console.log(`About to exit with code: ${code}`);
-  client.channels.get('442613933979861004').send("restarting...");
+  client.channels.get(process.env.LOBBY_ID).send("restarting...");
 });
 
 
 
 client.on("guildMemberAdd", (member) => {
-  member.guild.channels.get("442613933979861004").send(`:wave: Welcome to Mayhem City: Mafia, ${member}! Please read the rules in <#496705905312661525> before participating.`);
+  member.guild.channels.get(process.env.LOBBY_ID).send(`:wave: Welcome to Mayhem City: Mafia, ${member}! Please read the rules in <#496705905312661525> before participating.`);
 });
 
 client.on("guildMemberRemove", (member) => {
   const inout = require("./inout.json");
   const outres = inout.out
   let n = Math.floor(Math.random()*outres.length)
-  member.guild.channels.get("442613933979861004").send(":eject: "+outres[n][0] +"**"+member.displayName+"**"+ outres[n][1]);
+  member.guild.channels.get(process.env.LOBBY_ID).send(":eject: "+outres[n][0] +"**"+member.displayName+"**"+ outres[n][1]);
 });
 
 
