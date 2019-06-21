@@ -2,7 +2,7 @@ exports.run = (client, message, args) => {
   const fs = require('fs');
   const dataAT = require("./../data/attri.json");
   const dataAT_fn = __dirname + "/../data/attri.json";
-  
+
   if (message.member.roles.find("name", "Host")) {
       async function toggletime () {
         if (dataAT.night == true) {
@@ -10,6 +10,7 @@ exports.run = (client, message, args) => {
           message.channel.send(":sunny: **The game has now entered Day phase!**");
         } else {
           dataAT.night = true;
+          dataAT.exe = false;
           message.channel.send(":crescent_moon: **The game has now entered Night phase!**");
         }
       }

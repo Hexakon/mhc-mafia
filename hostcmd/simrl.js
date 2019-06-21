@@ -1,9 +1,7 @@
 exports.run = (client, message, args) => {
   const fs = require('fs');
   const data = require("./../data/id.json");
-  const data_fn = __dirname + "/../data/id.json";
   const dataCH = require("./../data/ch.json");
-  const dataCH_fn = __dirname + "/../data/ch.json";
 
   let dataID = data.id
   let dataPP = data.pp

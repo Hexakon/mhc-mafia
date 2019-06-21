@@ -4,29 +4,29 @@ exports.run = (client, message, args) => {
   const data_fn = __dirname + "/../data/id.json";
   const dataCH = require("./../data/ch.json");
   const dataCH_fn = __dirname + "/../data/ch.json";
-  
+
   let dataID = data.id
   let dataPP = data.pp
   const dataW = require("./../data/w.json");
   let dataWM = dataW.lastmsg;
   const dataW_fn = __dirname + "/../data/w.json";
-  
-  const rolePass = message.guild.roles.get('442709460461551626');
-  const roleAlive = message.guild.roles.get('442613191139262464');
+
+  const rolePass = message.guild.roles.find('name', 'Passenger');
+  const roleAlive = message.guild.roles.get('name', 'Alive');
   const passList = rolePass.members;
-  
+
   const roles = require("./../roles.json");
   const dataST = require("./../data/setup.json");
   const nicks = require("./../nicks.json");
-  
+
   const roletype = require("./../roletype.json");
-  
+
   let deck = []; // snowflake of every member in passList
-  
+
   for (let [sf, user] of passList) {
     deck.push(sf);
   }
-  
+
   function shuffle (x) { // code by chocoparrot uwu
     let arr = Array.from(x); // le duplicate array
     for (var i = 0; i < arr.length; i++) {
@@ -37,15 +37,15 @@ exports.run = (client, message, args) => {
     };
     return arr;
   };
-  
+
   deck = shuffle(deck);
   let nick = shuffle(nicks);
-  
+
   if (message.member.roles.find("name", "Host") && message.author.id == 132262525818503168) {
     if (args[0] == "YESIMSURE") {
-    
+
       message.channel.send(":construction: **The game is being prepared, please stand by.** :construction:");
-      
+
       async function assignid () {
         let i = 0;
         let user = "";
@@ -54,10 +54,10 @@ exports.run = (client, message, args) => {
         let displaylist = ""; // rolelist to be displayed in a readable format
         let rolelist = []; // empty list that is to be filled with the final role list
         let primelist = dataST.rolelist; // get the saved rolelist.
-        
+
         for (let sf of deck) {
           user = passList.get(sf);
-          
+
           await user.addRole('442613191139262464');
           await user.removeRole('442709460461551626');
           let channel = await message.channel.guild.createChannel(list[i], 'text');
@@ -66,17 +66,17 @@ exports.run = (client, message, args) => {
           await channel.overwritePermissions('460028455464206337', {VIEW_CHANNEL: true, SEND_MESSAGES: false});
           await channel.overwritePermissions(sf, {VIEW_CHANNEL: true, SEND_MESSAGES: true, MANAGE_MESSAGES: true});
           dataPP[keys[i]] = channel.id;
-          
+
           if (user.nickname === null) {
             await user.setNickname(nick[i]);
           }
-          
+
           await user.setNickname("["+list[i]+"] "+user.displayName); // sets nickname with letter ID
           dataID[keys[i]] = sf;
           dataWM[sf] = 0;
-          
+
           let rolepointer = "";
-    
+
           function rolegen() {
             if (roletype.categories.includes(primelist[i])) { // if role entry is a category, get a random item from the category.
               var category = "";
@@ -90,7 +90,7 @@ exports.run = (client, message, args) => {
             if (Object.keys(roles.alias).includes(primelist[i])) { // if role entry is an alias of a role, get the full role name.
               rolepointer = roles.alias[primelist[i]];
             }
-            if (roles.unique.includes(rolepointer) && rolelist.includes(rolepointer)) { // if two of the same unique roles exist, reroll. 
+            if (roles.unique.includes(rolepointer) && rolelist.includes(rolepointer)) { // if two of the same unique roles exist, reroll.
               rolegen();
             }
             if (primelist.includes(rolepointer)) { // if primelist has already occupied the role, reroll.
@@ -100,14 +100,14 @@ exports.run = (client, message, args) => {
               rolepointer = primelist[i];
             }
           }
-      
+
           rolegen(); // call for the function here.
-      
+
           rolelist.push(rolepointer); // when the rolepointer has been set to a role, add it to rolelist.
-          
+
           i++; // increase index value that is used by primelist[i].
         }
-        
+
         function exorcist() {
           if (rolelist.includes("cultist") == false && rolelist.includes("exorcist") == true) {
             let i = rolelist.indexOf("exorcist");
@@ -115,17 +115,17 @@ exports.run = (client, message, args) => {
               let category = roles[primelist[i]];
               let rolepointer = category[Math.floor(Math.random() * category.length)];
               rolelist[i] = rolepointer;
-              
+
               exorcist();
             }
           }
         }
         exorcist();
-        
+
         const aliveList = roleAlive.members;
-        
+
         rolelist = shuffle(rolelist);
-        
+
         let n=0;
         displaylist = "```";
         for (let sf of deck) {
@@ -136,7 +136,7 @@ exports.run = (client, message, args) => {
         displaylist = displaylist+"\n```";
         message.channel.send(displaylist);
       }
-      
+
       message.channel.guild.createChannel('mafia', 'text')
       .then(channel => {channel.setParent(dataCH.pricat);
                         channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
@@ -158,16 +158,16 @@ exports.run = (client, message, args) => {
                         dataCH.int = channel.id;
                         message.channel.send(`Interrogation channel has been set to ${message.guild.channels.get(dataCH.int)}.`);
       })
-      
+
       assignid().then(() => {
         fs.writeFile(data_fn, JSON.stringify(data, null, 2), function (err) {if (err) return console.log(err);});
         fs.writeFile(dataW_fn, JSON.stringify(dataW, null, 2), function (err) {if (err) return console.log(err);});
         fs.writeFile(dataCH_fn, JSON.stringify(dataCH, null, 2), function (err) {if (err) return console.log(err);});
       });
-      
+
       message.channel.send("**The game has been set up.**");
-      
-      
+
+
     } else {
       message.channel.send(":warning: **Are you sure you want to prepare the game now?**");
     }

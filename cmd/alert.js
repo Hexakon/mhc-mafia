@@ -1,6 +1,6 @@
 exports.run = (client, message, args) => {
-let alertRole = "442709336595234817";
-  
+let alertRole = client.guilds.get(process.env.GUILD_ID).roles.find('name', 'Alert!');
+
   if (args[0] == "on") {
     if (message.member.roles.has(alertRole)) {
       message.channel.send(":checkered_flag: You have already enabled the notification! " + message.author);

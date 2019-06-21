@@ -7,14 +7,14 @@ const dataCH = require("./../data/ch.json");
 const dataAT = require("./../data/attri.json");
 const muted = dataAT.muted;
 const dataW = require("./../data/w.json");
-let dataWM = dataW.lastmsg;
-//const dataWL = dataW.lover; deprecated
+const dataWM = dataW.lastmsg;
+const dataWL = dataW.lover;
 const dataW_fn = __dirname + "/../data/w.json";
 const dataST = require("./../data/setup.json");
 
 
-  if((message.member.roles.find("name", "Alive") || message.member.roles.find("name", "Host")) && dataST.w == true) {
-    if (message.channel.parentID === "447858869058928642" || message.channel.id === "459817070750728193") {
+  if((message.member.roles.find("name", "Alive") || message.member.roles.find("name", "Host")) && dataST.whisper == true) {
+    if (message.channel.parentID === dataCH.pricat || message.channel.id === "459817070750728193") {
 
     args[0] = args[0].toLowerCase();
 
@@ -47,10 +47,10 @@ const dataST = require("./../data/setup.json");
         message.channel.send(":stopwatch: **The message was not sent because you are sending whispers too quickly.**").then(msg => {msg.delete(5000)});
         console.log(message.createdTimestamp+", "+ dataWM[message.author.id] + 3000);
 
-      /*} else if (reciU.id == dataWL[message.author.id]) { // LOVER CHANNEL
+      } else if (reciU.id == dataWL[message.author.id]) { // LOVER CHANNEL
         message.delete(100);
         message.channel.send(":love_letter: to **"+reciN+"**: *"+text+"*");
-        client.channels.get(dataPP[args[0]]).send(":love_letter: from **"+sendN+"**: *"+text+"*");*/
+        client.channels.get(dataPP[args[0]]).send(":love_letter: from **"+sendN+"**: *"+text+"*");
 
       } else if (message.channel.id == dataCH.mafia) { // MAFIA CHANNEL
         message.delete(100);

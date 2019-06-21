@@ -13,7 +13,7 @@ let hostprefix = "-";
 //client.on & other events
 client.on("ready", () => {
   console.log("I am ready!");
-  client.user.setPresence({ game: { name: 'MHC:Mafia v0.1.34' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'Mayhem City: Mafia' }, status: 'online' })
 });
 
 process.on('exit', (code) => {
@@ -61,17 +61,13 @@ client.on("message", (message) => { // split command message into base (cmd) and
   const dataPP = data.pp;
   const dataRL = data.rl;
 
-  const valid = require("./cmd/group/rolevalid.js").check();
+  const valid = require("./cmd/group/rolevalid.js");
 
   if (message.channel.id == dataCH.int && message.author.bot == false) { // SPECIAL INTERROGATION MIRROR
     client.channels.get(dataPP[valid("interrogator")]).send(":microphone2: **"+message.member.displayName+"**: *"+message.content+"*");
   }
   if (message.channel.id == dataCH.dead && message.author.bot == false && dataAT.night == true) { // AFTERLIFE MIRROR
-    if (typeof valid("medium") == 'array') {
-      for (var i=0; i < v.check("medium").length; i++) {
-        client.channels.get(dataPP[valid("medium")]).send(":crystal_ball: **"+message.member.displayName+"**: *"+message.content+"*");
-      }
-    } else {
+    for (var i=0; i < v.check("medium").length; i++) {
       client.channels.get(dataPP[valid("medium")]).send(":crystal_ball: **"+message.member.displayName+"**: *"+message.content+"*");
     }
   }

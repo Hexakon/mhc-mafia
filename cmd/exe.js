@@ -3,13 +3,16 @@ const fs = require('fs');
 const data = require("./../data/id.json");
 const dataID = data.id;
 const dataPP = data.pp;
+const dataRL = data.rl;
 const dataCH = require("./../data/ch.json");
 const dataAT = require("./../data/attri.json");
-const dataRL = require("./../data/rl.json");
+const dataST = require("./../data/setup.json");
 const dataAT_fn = __dirname + "/../data/attri.json";
 const muted = dataAT.muted;
-  
-  if (message.member.roles.find("name", "Alive") && message.author.id == dataID[dataRL.int]) {
+
+const valid = require("./group/rolevalid.js");
+
+  if (message.member.roles.find("name", "Alive") && message.author.id == dataID[valid("interrogator")]) {
     if (message.channel.parentID === dataCH.pricat) {
       async function execute () {
         if (dataAT.exe == true) {
@@ -22,7 +25,7 @@ const muted = dataAT.muted;
           client.channels.get(dataCH.int).send(":gear: **The Interrogator has decided to execute you.**");
         }
       }
-      
+
       if (dataAT.night == true) {
         execute().then(() => {
           fs.writeFile(dataAT_fn, JSON.stringify(dataAT, null, 2), function (err) {if (err) return console.log(err);});
