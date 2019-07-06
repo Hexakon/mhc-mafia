@@ -133,6 +133,9 @@ exports.run = (client, message, args) => {
           displaylist = displaylist+"\n"+user+" = "+rolelist[n]; // add a row of text to displaylist.
           n++;
         }
+        for (let i=0; i < rolelist.length; i++) {
+          dataRL[list[i]] = rolelist[i];
+        }
         displaylist = displaylist+"\n```";
         message.channel.send(displaylist);
       }
