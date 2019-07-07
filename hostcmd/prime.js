@@ -13,6 +13,7 @@ exports.run = (client, message, args) => {
 
   const rolePass = message.guild.roles.find('name', 'Passenger');
   const roleAlive = message.guild.roles.get('name', 'Alive');
+  const roleSpec = message.guild.roles.get('name', 'Specter');
   const passList = rolePass.members;
 
   const roles = require("./../roles.json");
@@ -49,25 +50,37 @@ exports.run = (client, message, args) => {
       async function assignid () {
         let i = 0;
         let user = "";
-        let list = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-        let keys = Object.keys(dataPP); // lowercase alphabet
+        let list = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]; // uppercase alphabet list
+        let keys = Object.keys(dataPP); // lowercase alphabet list
         let displaylist = ""; // rolelist to be displayed in a readable format
         let rolelist = []; // empty list that is to be filled with the final role list
-        let primelist = dataST.rolelist; // get the saved rolelist.
+        let primelist = dataST.rolelist; // get the saved rolelist from setup details at setup.json
 
-        for (let sf of deck) {
+        for (let sf of deck) { // set "sf" as each member object and loop through the list
+
+          // in case I forget: for-of loops the first arg (var) through the second arg (obj) and sets the var's value to the current item for the loop, used for non-indexed lists e.g. objects
+
           user = passList.get(sf);
-
-          await user.addRole('442613191139262464');
-          await user.removeRole('442709460461551626');
-          let channel = await message.channel.guild.createChannel(list[i], 'text');
+          // give roles and generate channels
+          await user.addRole(roleAlive);
+          await user.removeRole(rolePass);
+          let channel = await message.channel.guild.createChannel(list[i], 'text'); // create the player's private channel
           await channel.setParent(dataCH.pricat)
-          await channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
-          await channel.overwritePermissions('460028455464206337', {VIEW_CHANNEL: true, SEND_MESSAGES: false});
-          await channel.overwritePermissions(sf, {VIEW_CHANNEL: true, SEND_MESSAGES: true, MANAGE_MESSAGES: true});
-          dataPP[keys[i]] = channel.id;
+          await channel.overwritePermissions(message.guild.id, { // invisible to everyone
+            VIEW_CHANNEL: false
+          });
+          await channel.overwritePermissions(roleSpec.id, { // visible but unchattable to specters
+            VIEW_CHANNEL: true,
+            SEND_MESSAGES: false
+          });
+          await channel.overwritePermissions(sf, { // user object
+            VIEW_CHANNEL: true,
+            SEND_MESSAGES: true,
+            MANAGE_MESSAGES: true
+          });
+          dataPP[keys[i]] = channel.id; // save the newly created channel's id in id.json
 
-          if (user.nickname === null) {
+          if (user.nickname === null) { // if user doesn't have a nickname, set a random one from nick.json
             await user.setNickname(nick[i]);
           }
 
@@ -124,7 +137,7 @@ exports.run = (client, message, args) => {
 
         const aliveList = roleAlive.members;
 
-        rolelist = shuffle(rolelist);
+        rolelist = shuffle(rolelist); // shuffle the role list after each slot has been generated.
 
         let n=0;
         displaylist = "```";
@@ -137,7 +150,7 @@ exports.run = (client, message, args) => {
           dataRL[list[i]] = rolelist[i];
         }
         displaylist = displaylist+"\n```";
-        message.channel.send(displaylist);
+        message.channel.send(displaylist); // generate a player list for manual gamelogs.
       }
 
       message.channel.guild.createChannel('mafia', 'text')
