@@ -13,6 +13,7 @@ exports.run = (client, message, args) => {
 
   const rolePass = message.guild.roles.find('name', 'Passenger');
   const roleAlive = message.guild.roles.get('name', 'Alive');
+  const roleDead = message.guild.roles.get('name', 'Dead');
   const roleSpec = message.guild.roles.get('name', 'Specter');
   const passList = rolePass.members;
 
@@ -156,6 +157,7 @@ exports.run = (client, message, args) => {
       message.channel.guild.createChannel('mafia', 'text')
       .then(channel => {channel.setParent(dataCH.pricat);
                         channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
+                        channel.overwritePermissions(roleDead, {SEND_MESSAGES: false});
                         channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true, SEND_MESSAGES: false});
                         dataCH.mafia = channel.id;
                         message.channel.send(`Mafia channel has been set to ${message.guild.channels.get(dataCH.mafia)}.`);
@@ -163,6 +165,7 @@ exports.run = (client, message, args) => {
       message.channel.guild.createChannel('cult', 'text')
       .then(channel => {channel.setParent(dataCH.pricat);
                         channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
+                        channel.overwritePermissions(roleDead, {SEND_MESSAGES: false});
                         channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true, SEND_MESSAGES: false});
                         dataCH.cult = channel.id;
                         message.channel.send(`Cult channel has been set to ${message.guild.channels.get(dataCH.cult)}.`);
@@ -170,6 +173,7 @@ exports.run = (client, message, args) => {
       message.channel.guild.createChannel('interrogation_room', 'text')
       .then(channel => {channel.setParent(dataCH.pricat);
                         channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
+                        channel.overwritePermissions(roleDead, {SEND_MESSAGES: false});
                         channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true, SEND_MESSAGES: false});
                         dataCH.int = channel.id;
                         message.channel.send(`Interrogation channel has been set to ${message.guild.channels.get(dataCH.int)}.`);
