@@ -6,7 +6,7 @@ exports.run = (client, message, args) => {
   const dataLW_fn = __dirname + "/../data/will.json";
   let dataCH = require(__dirname + "/../data/ch.json");
   const dataCH_fn = __dirname + "/../data/ch.json";
-  let dataID = data.id
+  let dataID = data.id // will probably deprecate these since I might as well use data.id[args]
   let dataPP = data.pp
   const dataW = require("./../data/w.json");
   const dataWM = dataW.lastmsg;
@@ -15,10 +15,11 @@ exports.run = (client, message, args) => {
 
   const roleAlive = message.guild.roles.find('name', 'Alive');
   const roleDead = message.guild.roles.find('name', 'Dead');
+  const roleSpec = message.guild.roles.find('name', 'Specter');
   const aliveList = roleAlive.members;
   const deadList = roleDead.members;
 
-  if  (message.member.roles.find("name", "Host") && message.author.id == 132262525818503168) {
+  if  (message.member.roles.find("name", "Host")) {
     if (args[0] == "YESIMSURE") {
     async function resetgame() {
 
@@ -37,27 +38,28 @@ exports.run = (client, message, args) => {
       }
 
       message.channel.send("Deleting private channels...");
-      let category1 = client.channels.get(dataCH.pricat).children;
-      await category1.forEach((value, key, map) => {value.delete();});
+      client.channels.get(dataCH.pricat).children.forEach((value, key, map) => {value.delete();});
 
       message.channel.send("Deleting public channels...");
-      let category2 = client.channels.get(dataCH.pubcat).children;
-      await category2.forEach((value, key, map) => {value.delete();});
+      client.channels.get(dataCH.pubcat).children.forEach((value, key, map) => {value.delete();});
+
+      message.channel.send("Deleting afterlife channels...");
+      client.channels.get(dataCH.deadcat).children.forEach((value, key, map) => {value.delete();});
 
       message.channel.send("Creating setup channel...");
-      let setup_channel = await message.channel.guild.createChannel('「setup」', 'text')
+      let setup_channel = await message.channel.guild.createChannel('※setup', 'text')
       await setup_channel.setParent(dataCH.pubcat)
       .then(channel => {channel.overwritePermissions(message.guild.id, {SEND_MESSAGES: false});});
       dataCH.setup = setup_channel.id;
 
       message.channel.send("Creating logbook channel...");
-      let logbook_channel = await message.channel.guild.createChannel('「logbook」', 'text')
+      let logbook_channel = await message.channel.guild.createChannel('※logbook', 'text')
       await logbook_channel.setParent(dataCH.pubcat)
       .then(channel => {channel.overwritePermissions(message.guild.id, {SEND_MESSAGES: false});});
       dataCH.logbook = logbook_channel.id;
 
       message.channel.send("Creating trial channel...");
-      let trial_channel = await message.channel.guild.createChannel('「trial」', 'text')
+      let trial_channel = await message.channel.guild.createChannel('※trial', 'text')
       await trial_channel.setParent(dataCH.pubcat)
       .then(channel => {channel.overwritePermissions(message.guild.id, {SEND_MESSAGES: false});});
       dataCH.trial = trial_channel.id;
@@ -66,7 +68,7 @@ exports.run = (client, message, args) => {
       let public_channel = await message.channel.guild.createChannel('city-hall', 'text')
       await public_channel.setParent(dataCH.pubcat)
       .then(channel => {channel.overwritePermissions(message.guild.id, {SEND_MESSAGES: false});
-                        channel.overwritePermissions('442613191139262464', {SEND_MESSAGES: true});
+                        channel.overwritePermissions(roleAlive, {SEND_MESSAGES: true});
                        });
       dataCH.public = public_channel.id;
 
@@ -74,23 +76,28 @@ exports.run = (client, message, args) => {
       let whisper_channel = await message.channel.guild.createChannel('post-office', 'text')
       await whisper_channel.setParent(dataCH.pubcat)
       .then(channel => {channel.overwritePermissions(message.guild.id, {SEND_MESSAGES: false});
-                        channel.overwritePermissions('442613191139262464', {SEND_MESSAGES: true});
+                        channel.overwritePermissions(roleAlive, {SEND_MESSAGES: true});
                        });
       dataCH.whisper = whisper_channel.id;
 
       message.channel.send("Creating graveyard channel...");
-      let deadcat = client.channels.get('448221234837323777').children;
-      deadcat.forEach((value, key, map) => {value.delete();});
-
       let dead_channel = await message.channel.guild.createChannel('graveyard', 'text')
-      await dead_channel.setParent('448221234837323777')
+      await dead_channel.setParent(dataCH.deadcat)
       .then(channel => {channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
-                        channel.overwritePermissions('442613265676107776', {VIEW_CHANNEL: true});
-                        channel.overwritePermissions('460028455464206337', {VIEW_CHANNEL: true, SEND_MESSAGES: false});
+                        channel.overwritePermissions(roleDead, {VIEW_CHANNEL: true});
+                        channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true, SEND_MESSAGES: false});
                        });
       dataCH.dead = dead_channel.id;
 
-      message.channel.send("Removing ingame roles...");
+      message.channel.send("Creating spectator channel...");
+      let dead_channel = await message.channel.guild.createChannel('ethereal-existence', 'text')
+      await dead_channel.setParent(dataCH.deadcat)
+      .then(channel => {channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
+                        channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true});
+                       });
+      dataCH.dead = dead_channel.id;
+
+      /*message.channel.send("Removing ingame roles..."); // redundant
       for (let [sf, user] of aliveList) {
         await user.removeRole('442613191139262464');
         await user.setNickname('');
@@ -98,7 +105,7 @@ exports.run = (client, message, args) => {
       for (let [sf, user] of deadList) {
         await user.removeRole('442613265676107776');
         await user.setNickname('');
-      }
+      }*/
 
       message.channel.send("**The game has been reset.**");
     }
@@ -111,7 +118,7 @@ exports.run = (client, message, args) => {
       });
 
     } else {
-      message.channel.send(":warning: **Are you sure you want to reset all channels and player data? This is irreversible!**");
+      message.channel.send(":warning: **Are you sure you want to reset all channels and player data?**\nMake sure you have archived all channels before proceeding!");
     }
   }
 }
