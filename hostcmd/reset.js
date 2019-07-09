@@ -90,12 +90,12 @@ exports.run = (client, message, args) => {
       dataCH.dead = dead_channel.id;
 
       message.channel.send("Creating spectator channel...");
-      let dead_channel = await message.channel.guild.createChannel('ethereal-existence', 'text')
-      await dead_channel.setParent(dataCH.deadcat)
+      let spec_channel = await message.channel.guild.createChannel('ethereal-existence', 'text')
+      await spec_channel.setParent(dataCH.deadcat)
       .then(channel => {channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
                         channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true});
                        });
-      dataCH.dead = dead_channel.id;
+      dataCH.spec = spec_channel.id;
 
       /*message.channel.send("Removing ingame roles..."); // redundant
       for (let [sf, user] of aliveList) {
