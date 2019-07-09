@@ -148,7 +148,7 @@ exports.run = (client, message, args) => {
           n++;
         }
         for (let i=0; i < rolelist.length; i++) {
-          dataRL[list[i]] = rolelist[i];
+          dataRL[list[i]] = rolelist[i]; // add the role to the associated letter.
         }
         displaylist = displaylist+"\n```";
         message.channel.send(displaylist); // generate a player list for manual gamelogs.
