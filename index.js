@@ -107,21 +107,53 @@ client.on("message", (message) => { // split command message into base (cmd) and
   // return if user is attempting to seek path
   if (cmd.charAt(0) === ".") return;
 
-  // command handler
+  // user commands
   if (message.content.indexOf(prefix) === 0) {
-   try {
-    let cmdFile = require(`./cmd/${cmd}.js`);
-    cmdFile.run(client, message, args);
-   } catch (err) {
-    console.error(err);
-   }
-  } else if (message.content.indexOf(hostprefix) === 0) {
-   try {
-    let cmdFile = require(`./hostcmd/${cmd}.js`);
-    cmdFile.run(client, message, args);
-   } catch (err) {
-    console.error(err);
-   }
+
+    // ingame commands
+    if (fs.existsSync(`./cmd/ingame/${cmd}.js`)) {
+      try {
+        let cmdFile = require(`./cmd/ingame/${cmd}.js`);
+        if (message.member.roles.find("name", "Alive") || message.member.roles.find("name", "Host")) {
+          cmdFile.run(client, message, args);
+        } else {
+          message.channel.send(":warning: **You must be ingame and alive to use this command!**");
+          throw "Error: "+message.author.username+"#"+message.author.discriminator+" attempted to use command \""+cmd+"\" but did not have the Alive role.";
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    // literally every other command
+    for (let path of new Array('docs','util','misc')) {
+      if (fs.existsSync(`./cmd/${path}/${cmd}.js`)) {
+        try {
+          let cmdFile = require(`./cmd/${path}/${cmd}.js`);
+          cmdFile.run(client, message, args);
+          break;
+        } catch (err) {
+          console.error(err);
+        }
+      }
+    }
+
+  }
+
+  // host commands
+  if (message.content.indexOf(hostprefix) === 0) {
+    try {
+     let cmdFile = require(`./hostcmd/${cmd}.js`);
+     // role validation
+     if (message.member.roles.find("name", "Host")) {
+       cmdFile.run(client, message, args);
+     } else {
+       message.channel.send(":warning: **You must be a host to use this command!**");
+       throw "Error: "+message.author.username+"#"+message.author.discriminator+" attempted to use command \""+cmd+"\" but did not have the Host role.";
+     }
+    } catch (err) {
+     console.error(err);
+    }
   }
 });
 

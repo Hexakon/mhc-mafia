@@ -1,14 +1,14 @@
 exports.run = (client, message, args) => {
   const inout = require("./../inout.json");
-  const flavor = inout.hug
-  const error = "attempted to hug the air, to no particular success."
-  const action = [":hugging:","hugged",""]
-  
+  const flavor = inout.pat
+  const error = "patted... something."
+  const action = ["<:headpat:577941310082646037>","patted"," on the head"]
+
   try {
-    let cmdFile = require(`./group/interact.js`);
+    let cmdFile = require(`./../group/interact.js`);
     cmdFile.run(client, message, args, flavor, error, action);
   } catch (err) {
     console.error(err);
   }
-  
+
 }
