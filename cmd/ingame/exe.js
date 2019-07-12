@@ -1,13 +1,13 @@
 exports.run = (client, message, args) => {
 const fs = require('fs');
-const data = require("./../data/id.json");
+const data = require("./../../data/id.json");
 const dataID = data.id;
 const dataPP = data.pp;
 const dataRL = data.rl;
-const dataCH = require("./../data/ch.json");
-const dataAT = require("./../data/attri.json");
-const dataST = require("./../data/setup.json");
-const dataAT_fn = __dirname + "/../data/attri.json";
+const dataCH = require("./../../data/ch.json");
+const dataAT = require("./../../data/attri.json");
+const dataST = require("./../../data/setup.json");
+const dataAT_fn = __dirname + "/../../data/attri.json";
 const muted = dataAT.muted;
 
 const valid = require("./group/rolevalid.js");

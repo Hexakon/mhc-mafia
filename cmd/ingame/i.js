@@ -1,10 +1,10 @@
 exports.run = (client, message, args) => {
-const data = require("./../data/id.json");
+const data = require("./../../data/id.json");
 const dataID = data.id;
 const dataPP = data.pp;
-const dataCH = require("./../data/ch.json");
-const dataST = require("./../data/setup.json");
-const dataAT = require("./../data/attri.json");
+const dataCH = require("./../../data/ch.json");
+const dataST = require("./../../data/setup.json");
+const dataAT = require("./../../data/attri.json");
 const muted = dataAT.muted;
 
   if (message.member.roles.find("name", "Alive") && message.author.id == dataID[dataST.int] && message.channel.parentID === dataCH.pricat && dataAT.night === true) {

@@ -1,16 +1,16 @@
 exports.run = (client, message, args) => {
 const fs = require('fs');
-const data = require("./../data/id.json");
+const data = require("./../../data/id.json");
 const dataID = data.id;
 const dataPP = data.pp;
-const dataCH = require("./../data/ch.json");
-const dataAT = require("./../data/attri.json");
+const dataCH = require("./../../data/ch.json");
+const dataAT = require("./../../data/attri.json");
 const muted = dataAT.muted;
-const dataW = require("./../data/w.json");
+const dataW = require("./../../data/w.json");
 const dataWM = dataW.lastmsg;
 const dataWL = dataW.lover;
-const dataW_fn = __dirname + "/../data/w.json";
-const dataST = require("./../data/setup.json");
+const dataW_fn = __dirname + "/../../data/w.json";
+const dataST = require("./../../data/setup.json");
 
 
   if((message.member.roles.find("name", "Alive") || message.member.roles.find("name", "Host")) && dataST.whisper == true) {
