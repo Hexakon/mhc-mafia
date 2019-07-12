@@ -62,6 +62,7 @@ client.on("message", (message) => { // split command message into base (cmd) and
   const dataID = data.id;
   const dataPP = data.pp;
   const dataRL = data.rl;
+  const fs = require("fs");
 
   const valid = require("./cmd/group/rolevalid.js");
 
