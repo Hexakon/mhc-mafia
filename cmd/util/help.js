@@ -18,10 +18,10 @@ const helpText = require("./help.json");
 
       if (command.type === "Interactions") { // unique template for interaction commands.
         description = "Virtually " + command.description + " with anyone and anything, along with a random short message.";
-        usage = "`."+command+" <target>`"
+        usage = "`."+command.name+" <target>`"
       }
       if (command.type === "Self") { // unique template for self commands.
-        usage = "`."+command+"`"
+        usage = "`."+command.name+"`"
       }
       let roles = "";
       if (command.roles !== undefined) { // ingame commands
