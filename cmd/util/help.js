@@ -66,6 +66,6 @@ const Discord = require("discord.js");
       .addField('**Self**', '`.seize`')
       .addField('**Fun**', '`.8ball` `.catfact` `.coin` `.ligma` `.ping` `.rps`')
 
-    message.channel.send("```md\n# MHC:M command list```Do `.help <command>` for more information about the command.\n\n**Documentation:**\n`.role / .r` - Get information of a specific role.\n`.roles / .rolelist / .rl` - Get a list of roles by category.\n\n**Ingame:**\n`.lastwill / .lw` - Edit or view your Last Will.\n`.whisper / .w` - Send a private message to a player.\n\n**Utility:**\n`.alert` - Toggles notification for new games.\n`.gmt / .utc` - Returns the current time in GMT time.\n\n**Interactions:** `.handshake`, `.hit`, `.hug`, `.slap`, `.spray`\n\n**Self:** `.seize`\n\n**Fun:** `.8ball`, `.catfact`, `.coin`, `.ligma`, `.ping`, `.rps`");
+    message.channel.send(helpEmbed);
   }
 }
