@@ -1,0 +1,142 @@
+{
+  "exe": {
+    "name": "exe",
+    "type": "Ingame",
+    "description": "A role command that toggles the night execution ability of the *Interrogator*. If the ability is on by the end of the night, the detained player will be dealt an *unstoppable* attack.",
+    "usage": "`.exe` - Toggles the decision. Off by default.",
+    "roles": "Interrogator"
+  },
+  "i": {
+    "name": "i",
+    "type": "Ingame",
+    "description": "A role command which allows a player to speak to a specific channel anonymously.",
+    "usage": "`.i <message>`",
+    "roles": "Interrogator and Mediums"
+  },
+  "lastwill": {
+    "name": "lastwill",
+    "type": "Ingame",
+    "description": "A general command used to write a personal Last Will, which is displayed upon the player's death. Some roles can hinder the Last Will from being displayed or modify its content.",
+    "usage": "`.lastwill <view/read>` to read your Last Will.\n`.lastwill <rewrite/overwrite> <text>` to overwrite your Last Will with the provided text.\n`.lastwill <write/add> <text>` to add text to your Last Will from a new line.\n`.lastwill <clear/delete>` to delete your Last Will.",
+    "roles": "All roles",
+    "alias": "`.lw`"
+  },
+  "lw": {
+    "redirect": "lastwill"
+  },
+  "reveal": {
+    "name": "reveal",
+    "type": "Ingame",
+    "description": "A role command that when used at daytime publicly announces and confirms the user's role.",
+    "usage": "`.reveal`",
+    "roles": "Mayor and Marshal"
+  },
+  "w": {
+    "redirect": "whisper"
+  },
+  "whisper": {
+    "name": "whisper",
+    "type": "Ingame",
+    "description": "A general command used to send private messages to a specific player. Whispers cannot be used at nighttime and while you have the __Mute__ effect. Whispers become Letters when sent from the Mafia/Cult channel, which bypasses all restrictions.",
+    "usage": "`.whisper <target player's id> <message>`",
+    "roles": "All roles",
+    "alias": "`.w`"
+  },
+  "r": {
+    "redirect": "role"
+  },
+  "rl": {
+    "redirect": "roles"
+  },
+  "role": {
+    "name": "role",
+    "type": "Documentation",
+    "description": "Displays detailed information of a specific role. Shorthand names are permitted. Omit spaces for roles whose names are 2 words or longer.",
+    "usage": "`.role <rolename>`",
+    "alias": "`.r`"
+  },
+  "rolelist": {
+    "redirect": "roles"
+  },
+  "roles": {
+    "name": "roles",
+    "type": "Documentation",
+    "description": "Displays a list of all roles in a specific category, and provides additional information if requested. Acronyms are permitted.",
+    "usage": "`.rl <faction> [subcategory]` to filter roles by faction and category.\n`.roles <unique/u> [faction]` to display all unique roles.\n`.roles <factional/f>` to see all factions/factional roles.\n`.roles all` to display all roles in a single list.\n(Append `info` to your command to display additional information about the query.)",
+    "alias": "`.rl` `.rolelist`"
+  },
+  "alert": {
+    "name": "alert",
+    "type": "Utility",
+    "description": "Toggles notifications for new games. You will not be pinged by this for any other cause.",
+    "usage": "`.alert <on/off>"
+  },
+  "gmt": {
+    "name": "gmt",
+    "type": "Utility",
+    "description": "Outputs the current timestamp in GMT format, which is the primary timezone for the game.",
+    "usage": "`.gmt`",
+    "alias": "`.utc`"
+  },
+  "help": {
+    "name": "help",
+    "type": "Utility",
+    "description": "Displays the help text.",
+    "usage": "`.help` to display the full list of commands.\n`.help <command>` to display detailed information about a specific command."
+  },
+  "ping": {
+    "name": "ping",
+    "type": "Utility",
+    "description": "Pings the bot and returns the duration it took for the bot to answer. If the bot does not respond to other commands, use this to check if the bot is still running normally.",
+    "usage": "`.ping`"
+  },
+  "signups": {
+    "name": "signups",
+    "type": "Utility",
+    "description": "See how many people are signed up for the game (\"Passengers\"), and how many people have chosen to spectate respectively.",
+    "usage": "`.signups` to view numbers.\n`.signups name` to display a list of passenger names."
+  },
+  "utc": {
+    "redirect": "gmt"
+  },
+  "handshake": {
+    "name": "handshake",
+    "type": "Interactions",
+    "description": "shake hands"
+  },
+  "seize": {
+    "name": "seize",
+    "type": "Self",
+    "description": "Virtually announce your socialist beliefs."
+  },
+  "8ball": {
+    "name": "8ball",
+    "type": "Fun",
+    "description": "Provides a random yes-or-no answer when asked a question.",
+    "usage": "`.8ball <question>`"
+  },
+  "catfact": {
+    "name": "catfact",
+    "type": "Fun",
+    "description": "Displays a random fact about felines, provided by [Cat Facts API](https://catfact.ninja/).",
+    "usage": "`.catfact`"
+  },
+  "coin": {
+    "name": "coin",
+    "type": "Fun",
+    "description": "Flips a coin, which will land on either heads or tails.",
+    "usage": "`.coin`"
+  },
+  "ligma": {
+    "name": "ligma",
+    "type": "What the fuck? Seriously, what the fuck?",
+    "description": "You are currently looking up help for a shitty unfunny joke that people might've found slightly humorous for roughly two days before it was abandoned. Let that sink in. How does it feel to be this pathetic? This command will reinforce just how stupid you are when you use it.",
+    "usage": "Your intelligence must be somehow worse than a rock if you can't operate a basic command such as this. Actually, you probably can't even read this."
+  },
+  "rps": {
+    "name": "rps",
+    "type": "Fun",
+    "description": "Simulates a game of Rock, Paper and Scissors against the bot.",
+    "usage": "`.rps <r/p/s>`"
+  }
+}
