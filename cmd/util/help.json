@@ -105,27 +105,27 @@
     "description": "shake hands with"
   },
   "hit": {
-    "name": "handshake",
+    "name": "hit",
     "type": "Interactions",
     "description": "hit"
   },
   "hug": {
-    "name": "handshake",
+    "name": "hug",
     "type": "Interactions",
     "description": "hug"
   },
   "pat": {
-    "name": "handshake",
+    "name": "pat",
     "type": "Interactions",
     "description": "headpat"
   },
   "slap": {
-    "name": "handshake",
+    "name": "slap",
     "type": "Interactions",
     "description": "slap"
   },
   "spray": {
-    "name": "handshake",
+    "name": "spray",
     "type": "Interactions",
     "description": "spray water at"
   },
