@@ -102,7 +102,32 @@
   "handshake": {
     "name": "handshake",
     "type": "Interactions",
-    "description": "shake hands"
+    "description": "shake hands with"
+  },
+  "hit": {
+    "name": "handshake",
+    "type": "Interactions",
+    "description": "hit"
+  },
+  "hug": {
+    "name": "handshake",
+    "type": "Interactions",
+    "description": "hug"
+  },
+  "pat": {
+    "name": "handshake",
+    "type": "Interactions",
+    "description": "headpat"
+  },
+  "slap": {
+    "name": "handshake",
+    "type": "Interactions",
+    "description": "slap"
+  },
+  "spray": {
+    "name": "handshake",
+    "type": "Interactions",
+    "description": "spray water at"
   },
   "seize": {
     "name": "seize",

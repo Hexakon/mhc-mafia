@@ -17,7 +17,7 @@ const helpText = require("./help.json");
       let usage = command.usage;
 
       if (command.type === "Interactions") { // unique template for interaction commands.
-        description = "Virtually " + command.description + " with anyone and anything, along with a random short message.";
+        description = "Virtually " + command.description + " anyone and anything, along with a random short message.";
         usage = "`."+command.name+" <target>`"
       }
       if (command.type === "Self") { // unique template for self commands.
