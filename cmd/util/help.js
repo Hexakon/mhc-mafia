@@ -38,7 +38,7 @@ const helpText = require("./help.json");
         .setAuthor('Mayhem City: Mafia', 'https://cdn.discordapp.com/avatars/462545110144516096/1c45ebd0c04974f3f3dc1ee5b01d30c7.png', 'http://hex4nova.cf/mafia')
         .setDescription(redirect)
         .addField('Description', description)
-        .addField('Usage', command.usage+"\n"+roles+alias)
+        .addField('Usage', usage+"\n"+roles+alias)
 
       message.channel.send(helpEmbed);
 
