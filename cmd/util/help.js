@@ -1,4 +1,5 @@
 exports.run = (client, message, args) => {
+const Discord = require("discord.js");
 
   if (args[0] === "role" || args[0] === "r") {
     message.channel.send("`.role` will display basic information of a certain role. Shorthand names are permitted. Do not include spaces for roles whose names are 2 words or longer.\n\n**Usage:** `.role <role name>`\n**Alias:** `.r`");
@@ -52,6 +53,7 @@ exports.run = (client, message, args) => {
 
 
   } else {
+
     const helpEmbed = new Discord.RichEmbed()
       .setColor('#11001e')
       .setTitle('Command help')
