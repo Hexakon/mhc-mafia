@@ -93,8 +93,14 @@
   "signups": {
     "name": "signups",
     "type": "Utility",
-    "description": "See how many people are signed up for the game (\"Passengers\"), and how many people have chosen to spectate respectively.",
+    "description": "Displays how many people are signed up for the game (\"Passengers\"), and how many people have chosen to spectate respectively.",
     "usage": "`.signups` to view numbers.\n`.signups name` to display a list of passenger names."
+  },
+  "time": {
+    "name": "time",
+    "type": "Utility",
+    "description": "Displays what the current phase is and the amount of time left before the next time phase.",
+    "usage": "`.time`"
   },
   "utc": {
     "redirect": "gmt"

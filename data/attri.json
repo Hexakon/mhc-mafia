@@ -1,7 +1,15 @@
 {
+  "game": false,
+  "night": false,
+
+  "absent": [
+  ],
+  "roleblocked": [
+  ],
+  "drugged": [
+  ],
   "muted": [
   ],
-  "exe": false,
-  "night": false,
-  "revealed": false
+
+  "nextphase": ""
 }

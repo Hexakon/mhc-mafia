@@ -6,6 +6,9 @@
   "nightchat": true,
   "deathcause": "show",
 
+  "daylength": 43200000,
+  "nightlength": 43200000,
+
   "mafia": {
     "chat": 1,
     "letter": true
