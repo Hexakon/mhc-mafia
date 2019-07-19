@@ -12,9 +12,9 @@ exports.run = (client, message, args) => {
   const dataW_fn = __dirname + "/../data/w.json";
 
   const rolePass = message.guild.roles.find('name', 'Passenger');
-  const roleAlive = message.guild.roles.get('name', 'Alive');
-  const roleDead = message.guild.roles.get('name', 'Dead');
-  const roleSpec = message.guild.roles.get('name', 'Specter');
+  const roleAlive = message.guild.roles.find('name', 'Alive');
+  const roleDead = message.guild.roles.find('name', 'Dead');
+  const roleSpec = message.guild.roles.find('name', 'Specter');
   const passList = rolePass.members;
 
   const roles = require("./../roles.json");
@@ -148,7 +148,7 @@ exports.run = (client, message, args) => {
           n++;
         }
         for (let i=0; i < rolelist.length; i++) {
-          dataRL[list[i]] = rolelist[i]; // add the role to the associated letter.
+          dataST.rolelist[list[i]] = rolelist[i]; // add the role to the associated letter.
         }
         displaylist = displaylist+"\n```";
         message.channel.send(displaylist); // generate a player list for manual gamelogs.
