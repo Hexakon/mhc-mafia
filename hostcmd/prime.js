@@ -7,6 +7,7 @@ exports.run = (client, message, args) => {
 
   let dataID = data.id
   let dataPP = data.pp
+  let dataRL = data.rl
   const dataW = require("./../data/w.json");
   let dataWM = dataW.lastmsg;
   const dataW_fn = __dirname + "/../data/w.json";
@@ -148,7 +149,7 @@ exports.run = (client, message, args) => {
           n++;
         }
         for (let i=0; i < rolelist.length; i++) {
-          dataST.rolelist[list[i]] = rolelist[i]; // add the role to the associated letter.
+          dataRL[list[i].toLowerCase()] = rolelist[i]; // log the generated role into data.json
         }
         displaylist = displaylist+"\n```";
         message.channel.send(displaylist); // generate a player list for manual gamelogs.
