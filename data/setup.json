@@ -2,27 +2,27 @@
   "rolelist": [
   ],
   "whisper": true,
-  "lastwill": true,
-  "nightchat": true,
-  "deathcause": "show",
+  "lastWill": true,
+  "publicChat": 0,
+  "deathCause": true,
 
-  "daylength": 43200000,
-  "nightlength": 43200000,
+  "dayLength": 43200000,
+  "nightLength": 43200000,
 
   "mafia": {
-    "chat": 1,
+    "chat": 0,
     "letter": true
   },
   "cult": {
-    "chat": 1,
+    "chat": 0,
     "letter": true
   },
   "triad": {
-    "chat": 1,
+    "chat": 0,
     "letter": true
   },
   "fox": {
-    "chat": 1,
+    "chat": 0,
     "letter": true
   }
 }

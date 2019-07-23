@@ -1,15 +1,13 @@
 {
-  "game": false,
-  "night": false,
-
   "absent": [
   ],
+  "detained": "",
+  "trapped": "",
+  
   "roleblocked": [
   ],
   "drugged": [
   ],
   "muted": [
-  ],
-
-  "nextphase": ""
+  ]
 }
