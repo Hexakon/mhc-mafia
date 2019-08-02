@@ -23,19 +23,19 @@ exports.run = (client, message, args) => {
     let index = dataEffect.muted.indexOf(player.id);
     await dataEffect.muted.splice(index, 1);
 
-    await client.channels.get(dataCH.public).permissionOverwrites.get(player).delete();
-    await client.channels.get(dataCH.whisper).permissionOverwrites.get(player).delete();
+    await client.channels.get(dataChannel.public).permissionOverwrites.get(player).delete();
+    await client.channels.get(dataChannel.whisper).permissionOverwrites.get(player).delete();
 
     message.channel.send(`:sound: ${message.guild.members.get(player)} is now unmuted.`);
   }
 
-  if (dataAT.muted.includes(dataID[args[0]]) && args[0].length == 1) {
+  if (dataEffect.muted.includes(dataPlayer.userId[args[0]]) && args[0].length == 1) {
     unmute().then(() => {
-      fs.writeFile(dataAT_fn, JSON.stringify(dataAT, null, 2), function (err) {if (err) return console.log(err);});
+      $function.writeFile(fnEffect, dataEffect)
     });
   } else if (args[0].length == 1) {
     mute().then(() => {
-      fs.writeFile(dataAT_fn, JSON.stringify(dataAT, null, 2), function (err) {if (err) return console.log(err);});
+      $function.writeFile(fnEffect, dataEffect)
     });
   } else {
     message.channel.send(":warning: **Invalid syntax!**");

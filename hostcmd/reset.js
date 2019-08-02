@@ -13,6 +13,7 @@ exports.run = (client, message, args) => {
   const roleSpec = message.guild.roles.find('name', 'Specter');
 
   const $function = require.main.require("./const/function.js");
+  const $index = require.main.require("./const/index.js");
 
   if (message.author.id == 132262525818503168 && args[0] == "YESIMSURE") {
     async function resetgame() {
@@ -20,10 +21,10 @@ exports.run = (client, message, args) => {
       message.channel.send(":construction: **The game is being reset, please stand by.** :construction:");
 
       message.channel.send("Clearing player data...");
-      for (let i in Object.keys(dataPlayer.userId);) {
-        dataID[keys[i]] = "";
-        dataPP[keys[i]] = "";
-        dataLW[keys[i]] = "";
+      for (let i in Object.keys(dataPlayer.userId)) {
+        dataPlayer.userId[$index.lowerAlpha[i]] = "";
+        dataPlayer.channelId[$index.lowerAlpha[i]] = "";
+        dataWill[$index.lowerAlpha[i]] = "";
       }
 
       message.channel.send("Deleting private channels...");

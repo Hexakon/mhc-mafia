@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
   const $function = require.main.require("./const/function.js");
 
   let old = dataSetup.rolelist
-  dataST.rolelist = args
-  message.channel.send("**Role list saved as: **"+dataST.rolelist+"\n\n*Was: "+old+"*");
+  dataSetup.rolelist = args
+  message.channel.send("**Role list saved as: **"+dataSetup.rolelist+"\n\n*Was: "+old+"*");
   $function.writeFile(fnSetup, dataSetup)
 }

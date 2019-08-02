@@ -42,7 +42,7 @@ client.on("messageReactionAdd", (messageReaction, user) => {
   console.log("Detected reaction "+messageReaction.emoji+" from "+user.username);
   const dataChannel = require("./data/channel.json");
   const member = messageReaction.message.guild.members.get(user.id);
-  if (!member.roles.find("name", "Host") && messageReaction.message.channel.id === dataChannel.trial && !member.roles.find("name", "Alive") {
+  if (!member.roles.find("name", "Host") && messageReaction.message.channel.id === dataChannel.trial && !member.roles.find("name", "Alive")) {
     messageReaction.remove(user);
     user.send(":warning: **Please do not react to trial votes while dead or outside of the game.**");
   }
@@ -63,7 +63,7 @@ client.on("message", (message) => { // split command message into base (cmd) and
   }
   if (message.channel.id == dataChannel.dead && message.author.bot == false && dataTime.night == true) { // AFTERLIFE MIRROR
     for (var i=0; i < $function.playersWithRole("medium").length; i++) {
-      client.channels.get(dataPP[$function.playersWithRole("medium")]).send(":crystal_ball: **"+message.member.displayName+"**: *"+message.content+"*");
+      client.channels.get(dataPlayer.channelId[$function.playersWithRole("medium")]).send(":crystal_ball: **"+message.member.displayName+"**: *"+message.content+"*");
     }
   }
 
@@ -80,7 +80,7 @@ client.on("message", (message) => { // split command message into base (cmd) and
   if (message.channel.id == dataChannel.trial && message.author.bot == false) { // POLL REACTIONS FOR TRIAL
 
     const $index = require("./const/index.json")
-    
+
     async function indicate() {
       for (let i = 0; i < 26; i++) { // iterating for the length of the alphabet
         if (message.isMentioned(dataPlayer.userId[$index.lowerAlpha[i]])) {
@@ -102,6 +102,8 @@ client.on("message", (message) => { // split command message into base (cmd) and
 
   // user commands
   if (message.content.indexOf(prefix) === 0) {
+
+    const fs = require("fs");
 
     // ingame commands
     if (fs.existsSync(`./cmd/ingame/${cmd}.js`)) {

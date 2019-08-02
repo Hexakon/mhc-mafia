@@ -33,7 +33,7 @@ module.exports = {
     return newArray;
   },
 
-  time: function (timeNext, timeNow) { // dataTime.nextphase, message.createdTimestamp
+  timeleft: function (timeNext, timeNow) { // dataTime.nextphase, message.createdTimestamp
     let time = timeNext - timeNow; // get remaining time in ms
 
     let h = Math.floor(time/3600000);
@@ -79,8 +79,7 @@ module.exports = {
 
     let rolelistNew = []; // empty array of new roles.
 
-    rolelist.forEach(role => { // repeat this for every role in the list
-
+    function generate(role) { // function for generating the role (used for recursion in line 95)
       let roleNew = "" // new role to be returned.
 
       if ($role.categories.includes(role)) { // if role entry is a category, get a random item from the category.
@@ -90,15 +89,17 @@ module.exports = {
       }
 
       // if role entry is an alias of a role, get its full role name.
-      if (Object.keys($role.alias).includes(primelist[i])) rolepointer = $role.alias[role];
+      if (Object.keys($role.alias).includes(role)) roleNew = $role.alias[role];
 
       // if two of the same unique roles exist, OR if primelist has already occupied the role, reroll.
-      if (($role.unique.includes(roleNew) && rolelist.includes(roleNew)) || rolelist.includes(roleNew)) rolegen();
+      if (($role.unique.includes(roleNew) && rolelist.filter(roleNew => roleNew )) || rolelist.includes(roleNew)) generate();
 
       // if primelist[i] is already a full role name, use full role name.
       if ($role.rolelist.includes(role)) roleNew = role;
+    }
 
-      rolelistNew.push(roleNew);
+    rolelist.forEach(role => { // repeat this for every role in the list
+      rolelistNew.push(generate(role));
     })
 
     // note that at this stage the roles have yet NOT been shuffled, so all slots in rolelist and rolelistNew are synced with the other array. The following code snippets aim to replace impossible role combinations using this information.
@@ -108,7 +109,8 @@ module.exports = {
       // "entries()" array method returns an array iterator with index-value pairs
       for (let [index, roleNew] of rolelistNew.filter(role => role === "exorcist").entries()) {
         // tests if roleNew was generated from a category slot. If it is NOT (return true as the category does not exist), the role is unaltered to allow the situation to exist in fixed setups.
-        roleNew = (typeof $role[rolelist[index]] === "undefined") ? roleNew : $role[rolelist[index]][Math.floor(Math.random() * category.length)];
+        roleNew = (typeof $role[rolelist[index]] === "undefined") ? roleNew : $role[rolelist[index]][Math.floor(Math.random() * rolelist[index].length)];
+        // rolelist[index] = the "category" in that slot.
       }
     }
 
@@ -129,7 +131,7 @@ module.exports = {
 
       // same logic as above
       for (let [index, roleNew] of shuffledList.entries()) {
-        roleNew = (typeof $role[rolelist[index]] === "undefined") ? roleNew : $role[rolelist[index]][Math.floor(Math.random() * category.length)];
+        roleNew = (typeof $role[rolelist[index]] === "undefined") ? roleNew : $role[rolelist[index]][Math.floor(Math.random() * rolelist[index].length)];
       }
 
     }

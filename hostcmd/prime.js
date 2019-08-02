@@ -77,7 +77,7 @@ exports.run = (client, message, args) => {
 
         dataPlayer.role[$index.lowerAlpha[i]] == rolelistFinal[i] // save user role
 
-        userObject = rolePass.members.get(userId);
+        let userObject = rolePass.members.get(userId);
         displaylist = displaylist+"\n"+userObject+" = "+rolelistFinal[i]; // add a row of text to displaylist.
 
       }
@@ -111,7 +111,6 @@ exports.run = (client, message, args) => {
 
     assignid().then(() => {
       $function.writeFile(fnPlayer, dataPlayer);
-      $function.writeFile(fnWhisper, dataWhisper);
       $function.writeFile(fnChannel, dataChannel);
       message.channel.send("**The game has been set up.**");
     });
