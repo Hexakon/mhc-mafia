@@ -18,7 +18,7 @@
     "mafioso",
     "masquerader",
     "poisoner",
-    
+
     "amnesiac",
     "anomaly",
     "arsonist",
@@ -36,7 +36,7 @@
     "stalker",
     "survivor",
     "witch",
-    
+
     "agent",
     "attorney",
     "bodyguard",
@@ -58,7 +58,7 @@
     "tracker",
     "veteran"
   ],
-  
+
   "mafia": [
     "ambusher",
     "anesthetist",
@@ -82,7 +82,7 @@
   "mk": ["ambusher", "godfather", "machinist", "mafioso", "poisoner"],
   "md": ["anesthetist", "coroner", "disguiser", "framer", "hypnotist", "janitor", "forger", "masquerader"],
   "ms": ["blackmailer", "consort", "inspector", "kidnapper", "lurker"],
-  
+
   "neutral": [
     "amnesiac",
     "anomaly",
@@ -106,7 +106,7 @@
   "ne": ["bountyhunter", "delinquent", "lunatic", "witch"],
   "nb": ["amnesiac", "guardianangel", "secretary", "survivor"],
   "nc": ["anomaly", "cultist", "hitman", "jigsaw", "stalker"],
-  
+
   "town": [
     "agent",
     "attorney",
@@ -133,7 +133,7 @@
   "tp": ["bodyguard", "crusader", "doctor", "landlord"],
   "tk": ["enforcer", "exorcist", "interrogator", "veteran"],
   "ts": ["attorney", "driver", "escort", "marshal", "mayor", "medium", "resurrector"],
-  
+
   "unique": [
     "ambusher",
     "godfather",
@@ -155,7 +155,7 @@
   "um": ["ambusher", "godfather", "kidnapper", "machinist", "mafioso", "poisoner"],
   "un": ["anomaly", "demoman", "jigsaw", "juggernaut", "stalker"],
   "ut": ["interrogator","landlord", "marshall", "mayor", "resurrector"],
-  
+
   "factional": [
     "the Town",
     "the Mafia",
@@ -166,8 +166,8 @@
     "Stalkers",
     "the Cult"
   ],
-  
-  
+
+
   "alias": {
     "amb": "ambusher",
     "anes": "anesthetist",
@@ -211,6 +211,38 @@
     "vet": "veteran",
     "cl": "cultleader",
     "nur": "nurse",
-    "sorc": "sorceress"
-  }
+    "sorc": "sorceress",
+
+    "town": "t",
+    "mafia": "m",
+    "neutral": "n",
+    "unique": "u",
+    "factional": "f",
+    "cult": "c",
+    "investigative": "i",
+    "protective": "p",
+    "killing": "k",
+    "support": "s",
+    "deception": "d",
+    "evil": "e",
+    "benign": "b",
+    "chaos": "c"
+  },
+  "categories": [
+    "mafia",
+    "mk",
+    "md",
+    "ms",
+    "neutral",
+    "nk",
+    "ne",
+    "nb",
+    "nc",
+    "town",
+    "ti",
+    "tp",
+    "tk",
+    "ts",
+    "any"
+  ]
 }

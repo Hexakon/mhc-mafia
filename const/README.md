@@ -1,12 +1,16 @@
 # Constant text index
 
-This folder contains all unchangeable text and information that are used throughout not only the game, but the server as well. Changeable information such as ingame data are not listed here.
+This folder contains all unchangeable (hardcoded) text and information that are used throughout not only the game, but the server as well. Changeable information such as ingame data are not listed here.
 
 This document describes the content and usage of each file, mostly as reminder to myself to keep things organized. They are listed in order of importance and frequency in the entire server.
 
 ## index.json
 Referred to as: `$index`
 - All alphabetical arrays that are used throughout the game.
+
+## function.js
+Referred to as: `$function`
+- Commonly used functions throughout the bot.
 
 ## role.json
 (Referred to as: `$role`)
