@@ -23,13 +23,13 @@ Referred to as: `dataSetup` and `fnSetup`
 
 ## time.json
 (Referred to as: `dataTime` and `fnTime`)
-- Description of the current time phase and the timeoutID associated with it.
-- Generated gamelog and logbooks.
+- Description of the current time phase (`dayNo` and `phase`) and the `timeoutID` associated with it.
+- Generated `logbook`s.
 - Replaces part of `attri.json` in legacy versions.
 
 ## player.json
 (Referred to as: `dataPlayer` and `fnPlayer`)
-- User ID, private channel ID and role name tied to ingame alphabetical IDs.
+- User ID (`userId`), private channel ID (`channelId`) and role name (`role`) tied to ingame alphabetical IDs.
 - Replaces `id.json` in legacy versions.
 
 ## effect.json
@@ -55,5 +55,5 @@ Referred to as: `dataSetup` and `fnSetup`
 
 ## whisper.json
 (Referred to as: `dataWhisper` and `fnWhisper`)
-- Miscellaneous data concerning whispers, currently unused.
+- Miscellaneous data concerning whispers, currently only used by `lover`s game mode.
 - Replaces `w.json` in legacy versions.

@@ -1,7 +1,9 @@
 {
   "dayNo": 1,
-  "phase": "day",
+  "night": false,
   "timeoutID": 0,
+
+  "nextphase": 0,
 
   "logbookDraft": ""
 }
