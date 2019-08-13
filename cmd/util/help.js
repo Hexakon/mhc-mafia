@@ -10,7 +10,7 @@ const helpText = require("./help.json");
 
       if (helpText[args[0]].redirect !== undefined) { // exception if the searched command is an alias
         command = helpText[helpText[args[0]].redirect];
-        redirect = "*Redirected from `."+args[0].toLowerCase()+"`*";
+        redirect = "*(Redirected from `."+args[0].toLowerCase()+"`)*";
       }
 
       let description = command.description;
@@ -31,9 +31,9 @@ const helpText = require("./help.json");
 
       const helpEmbed = new Discord.RichEmbed()
         .setColor('#11001e')
-        .setTitle('__**.'+command.name+'**__ ('+command.type+'command)')
+        .setTitle('__**.'+command.name+'**__')
         .setAuthor('Mayhem City: Mafia', 'https://cdn.discordapp.com/avatars/462545110144516096/1c45ebd0c04974f3f3dc1ee5b01d30c7.png', 'http://hex4nova.cf/mafia')
-        .setDescription(redirect)
+        .setDescription(command.type+' command ' + redirect)
         .addField('Description', description)
         .addField('Usage', usage+"\n"+roles+alias)
 
