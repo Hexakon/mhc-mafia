@@ -22,7 +22,6 @@ const helpText = require("./help.json");
       }
       // unique template for self commands.
       usage = (command.type === "Self") ? "`."+command.name+"`" : usage
-      }
 
       // ingame commands
       let roles = (command.roles !== undefined) ? "\n**Can be used by:** "+command.roles : ""
