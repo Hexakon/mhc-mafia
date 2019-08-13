@@ -1,6 +1,6 @@
 exports.run = (client, message, args) => {
-  const inout = require("./../../inout.json");
-  const flavor = inout.hug
+  const $inout = require.main.require("./const/inout.json");
+  const flavor = $inout.hug
   const error = "attempted to hug the air, to no particular success."
   const action = [":hugging:","hugged",""]
 

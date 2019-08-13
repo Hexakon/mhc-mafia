@@ -1,5 +1,5 @@
 exports.run = (client, message, args) => {
-let alertRole = client.guilds.get(process.env.GUILD_ID).roles.find('name', 'Alert!');
+let alertRole = message.guild.roles.find('name', 'Alert!');
 
   if (args[0] == "on") {
     if (message.member.roles.has(alertRole)) {

@@ -1,6 +1,6 @@
 exports.run = (client, message, args) => {
-  const inout = require("./../../inout.json");
-  const flavor = inout.pat
+  const $inout = require.main.require("./const/inout.json");
+  const flavor = $inout.pat
   const error = "patted... something."
   const action = ["<:headpat:577941310082646037>","patted"," on the head"]
 

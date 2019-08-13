@@ -1,7 +1,7 @@
 exports.run = (client, message, args) => {
 const Discord = require("discord.js");
-const roles = require("./../../roles.json");
-const roleinfo = require("./../../roleinfo.json");
+const $role = require.main.require("./const/role.json");
+const $roleinfo = require.main.require("./const/roleinfo.json");
 
 const akey = Object.keys(roles.alias);
 

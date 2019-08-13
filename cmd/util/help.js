@@ -20,21 +20,19 @@ const helpText = require("./help.json");
         description = "Virtually " + command.description + " anyone and anything, along with a random short message.";
         usage = "`."+command.name+" <target>`"
       }
-      if (command.type === "Self") { // unique template for self commands.
-        usage = "`."+command.name+"`"
+      // unique template for self commands.
+      usage = (command.type === "Self") ? "`."+command.name+"`" : usage
       }
-      let roles = "";
-      if (command.roles !== undefined) { // ingame commands
-        roles = "\n**Can be used by:** "+command.roles;
-      }
-      let alias = "";
-      if (command.alias !== undefined) { // commands with aliases
-        alias = "\n**Alias:** "+command.alias;
-      }
+
+      // ingame commands
+      let roles = (command.roles !== undefined) ? "\n**Can be used by:** "+command.roles : ""
+
+      // commands with aliases
+      let alias = (command.alias !== undefined) ? "\n**Alias:** "+command.alias : ""
 
       const helpEmbed = new Discord.RichEmbed()
         .setColor('#11001e')
-        .setTitle('**.'+command.name+'**')
+        .setTitle('__**.'+command.name+'**__ ('+command.type+'command)')
         .setAuthor('Mayhem City: Mafia', 'https://cdn.discordapp.com/avatars/462545110144516096/1c45ebd0c04974f3f3dc1ee5b01d30c7.png', 'http://hex4nova.cf/mafia')
         .setDescription(redirect)
         .addField('Description', description)

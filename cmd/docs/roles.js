@@ -1,7 +1,6 @@
 exports.run = (client, message, args) => {
 const Discord = require("discord.js");
-const roles = require("./../../roles.json");
-const roletype = require("./../../roletype.json");
+const role = require.main.require("./role.json");
 
 
       let roledisplay = ""; // the role list in question
