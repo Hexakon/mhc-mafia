@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
   const roleSpec = message.guild.roles.find('name', 'Specter');
 
   const $function = require.main.require("./const/function.js");
-  const $index = require.main.require("./const/index.js");
+  const $index = require.main.require("./const/index.json");
 
   if (message.author.id == 132262525818503168 && args[0] == "YESIMSURE") {
     async function resetgame() {
