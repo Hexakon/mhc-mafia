@@ -3,21 +3,21 @@ const Discord = require("discord.js");
 const $role = require.main.require("./const/role.json");
 const $roleinfo = require.main.require("./const/roleinfo.json");
 
-const akey = Object.keys(roles.alias);
+const akey = Object.keys($role.alias);
 
   if (args[0] != undefined) { args[0] = args[0].toLowerCase(); }
 
       if (akey.includes(args[0])) { // check if role is shorthand: if yes then set to full name
-        args[0] = roles.alias[args[0]];
+        args[0] = $role.alias[args[0]];
       }
-      if (roles.rolelist.includes(args[0])) { // check if role is in the rolelist
+      if ($role.rolelist.includes(args[0])) { // check if role is in the rolelist
 
-        let roleget = roleinfo[args[0]];
+        let roleget = $roleinfo[args[0]];
 
-        if (roles.town.includes(args[0])) { // set embed color
+        if ($role.town.includes(args[0])) { // set embed color
           var embedcolor = '#32cd32';
           var rolegetgoal = 'Lynch every criminal and evil-doer.';
-        } else if (roles.mafia.includes(args[0])) {
+        } else if ($role.mafia.includes(args[0])) {
           var embedcolor = '#b22222';
           var rolegetgoal = 'Kill everyone who opposes the Mafia.';
         } else {
