@@ -143,10 +143,10 @@ module.exports = {
 
   },
 
-  logbook: function (phase, events, roleAlive, intro, lang) {
-    let logbook = "**- - -   "+phase.toUpperCase+"   - - -**\n*("+time.toUTCString()+")*\n\n"
+  logbook: function (message, phase, events, roleAlive, intro, lang) {
+    let logbook = "**- - -   "+phase.toUpperCase+"   - - -**\n*("+ new Date().toUTCString()+")*\n\n"
 
-    logbook += (typeof intro !== undefined) ? "*" intro + "*\n\n" : ""
+    logbook += (typeof intro !== undefined) ? "*" + intro + "*\n\n" : ""
 
     if (events.length === 0) {
       logbook += "Nothing of interest occured."
@@ -158,7 +158,7 @@ module.exports = {
         logbook += (events[i][0] === "amnesiac") ? ":bulb: **An Amnesiac has remembered that they were a " + events[i][1] + "!**" : ""
         logbook += (events[i][0] === "secretary") ? ":bulb: **A Secretary has sided with the " + events[i][1] + "!**" : ""
         logbook += (events[i][0] === "reveal") ? ":loudspeaker: **" + message.guild.members.get(events[i][1]) + " has revealed themselves as " + events[i][2] + "!**" : ""
-        logbook += (events[i][0] === "trialdeath") { ? "**" + message.guild.members.get(events[i][1]) + " has been lynched by "+events[i][2]+" votes.**" : ""
+        logbook += (events[i][0] === "trialdeath") ? "**" + message.guild.members.get(events[i][1]) + " has been lynched by "+events[i][2]+" votes.**" : ""
       }
     }
     logbook += "\n\n*" + roleAlive.members.size + " citizens remain.*\n" + roleAlive
