@@ -1,22 +1,22 @@
 {
-  "publicCategory": 447821546065756160,
-  "privateCategory": 447858869058928642,
-  "deadCategory": 448221234837323777,
+  "publicCategory": "447821546065756160",
+  "privateCategory": "447858869058928642",
+  "deadCategory": "448221234837323777",
 
-  "setup": 0,
-  "logbook": 0,
-  "trial": 0,
+  "setup": "",
+  "logbook": "",
+  "trial": "",
 
-  "public": 0,
-  "whisper": 0,
+  "public": "",
+  "whisper": "",
 
-  "dead": 0,
-  "spec": 0,
+  "dead": "",
+  "spec": "",
 
-  "int": 0,
+  "int": "",
 
-  "mafia": 0,
-  "cult": 0,
-  "triad": 0,
-  "fox": 0
+  "mafia": "",
+  "cult": "",
+  "triad": "",
+  "fox": ""
 }
