@@ -1,0 +1,55 @@
+{
+  "status": {
+    "name": "Status (disambiguation)",
+    "category": "Disambiguation page",
+    "link": "http://hex4nova.cf/mafia/wiki/status_(disambiguation)",
+    "description": "**Status** can refer to:\n\n**Status message**: The feedback message received in private properties as a result of abilities.\n**Status effect**: Temporary or permanent modification of basic game mechanics."
+  },
+  "effect": {
+    "redirect": "status effect"
+  },
+  "status effect": {
+    "name": "Status Effect",
+    "category": "Category index",
+    "link": "http://hex4nova.cf/mafia/wiki/status_effect",
+    "description": "A **status effect** affects the player's ability to access and interact with basic game mechanics, such as chatting, voting, using role abilities and attributes.",
+    "index": ["absent", "broken", "drugged", "muted", "roleblocked", "traumatized"]
+  },
+  "absent": {
+    "name": "Absent",
+    "category": "Status effect",
+    "link": "http://hex4nova.cf/mafia/wiki/absent",
+    "description": "An effect caused by the abilities of the *Interrogator* and the *Jigsaw*. While this effect is active, all actions toward the player will fail and produce the __status message__ \"Your target was absent!\" Additionally, the player will always be given the __Roleblock__ and __Mute__ status effects regardless of __immunity__. Because of this, the __roleblocker__ can be __counterattacked__ if the absent player is not killed on the same night."
+  },
+  "broken": {
+    "name": "Broken",
+    "category": "Status effect",
+    "link": "http://hex4nova.cf/mafia/wiki/broken",
+    "description": "An effect caused by killing a townie as *Enforcer*. While this effect is active, the player cannot be targeted by protective abilities under any circumstances."
+  },
+  "drugged": {
+    "name": "Drugged",
+    "category": "Status effect",
+    "link": "http://hex4nova.cf/mafia/wiki/drugged",
+    "description": "An effect caused by the *Anesthetist*'s ability. The player will not receive any status messages for that night."
+  },
+  "muted": {
+    "name": "Muted",
+    "category": "Status effect",
+    "link": "http://hex4nova.cf/mafia/wiki/muted",
+    "description": "An effect caused by the *Blackmailer*'s ability. The player is unable to talk in any public or faction channels or use whispers while this effect is active."
+  },
+  "roleblocked": {
+    "name": "Roleblocked",
+    "category": "Status effect",
+    "link": "http://hex4nova.cf/mafia/wiki/roleblocked",
+    "description": "An effect caused by the abilities of *Escorts*, *Consorts* and any role that can cause the __Absent__ effect. The player cannot use their ability while this effect is active. Players with __Roleblock Immunity__ can still be roleblocked through the __Absent__ effect.",
+    "seeAlso": "absent"
+  },
+  "traumatized": {
+    "name": "Traumatized",
+    "category": "Status effect",
+    "link": "http://hex4nova.cf/mafia/wiki/roleblocked",
+    "description": "An effect caused by the ability of Delinquents. While this effect is active, the player is unable to trigger or use their active/passive abilities, but retain their attributes and win conditions."
+  }
+}

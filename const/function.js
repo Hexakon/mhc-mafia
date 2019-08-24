@@ -73,13 +73,13 @@ module.exports = {
     return text;
   },
 
-  rolegen: function rolegen(rolelist) {
+  rolegen: function (rolelist) {
 
     const $role = require.main.require("./const/role.json"); // requiring role information.
 
     let rolelistNew = []; // empty array of new roles.
 
-    function generate(role) { // function for generating the role (used for recursion in line 95)
+    function generate (role) { // function for generating the role (used for recursion in line 95)
       let roleNew = "" // new role to be returned.
 
       if ($role.categories.includes(role)) { // if role entry is a category, get a random item from the category.
@@ -96,6 +96,8 @@ module.exports = {
 
       // if primelist[i] is already a full role name, use full role name.
       if ($role.rolelist.includes(role)) roleNew = role;
+
+      return roleNew
     }
 
     rolelist.forEach(role => { // repeat this for every role in the list
@@ -139,5 +141,28 @@ module.exports = {
 
     return rolelistNew;
 
+  },
+
+  logbook: function (phase, events, roleAlive, intro, lang) {
+    let logbook = "**- - -   "+phase.toUpperCase+"   - - -**\n*("+time.toUTCString()+")*\n\n"
+
+    logbook += (typeof intro !== undefined) ? "*" intro + "*\n\n" : ""
+
+    if (events.length === 0) {
+      logbook += "Nothing of interest occured."
+    } else {
+      for (let i=0; i<events.length; i++) {
+        // edit these to allow lang input later.
+        logbook += (events[i][0] === "death") ? "**The body of " + message.guild.members.get(events[i][1]) + " was found in their home last night.**" : "" // edit this to accept death types later.
+        logbook += (events[i][0] === "attorney") ? ":briefcase: **" + message.guild.members.get(events[i][1]) + " is under protection of an Attorney!**\nThey cannot be voted against during today's trial." : ""
+        logbook += (events[i][0] === "amnesiac") ? ":bulb: **An Amnesiac has remembered that they were a " + events[i][1] + "!**" : ""
+        logbook += (events[i][0] === "secretary") ? ":bulb: **A Secretary has sided with the " + events[i][1] + "!**" : ""
+        logbook += (events[i][0] === "reveal") ? ":loudspeaker: **" + message.guild.members.get(events[i][1]) + " has revealed themselves as " + events[i][2] + "!**" : ""
+        logbook += (events[i][0] === "trialdeath") { ? "**" + message.guild.members.get(events[i][1]) + " has been lynched by "+events[i][2]+" votes.**" : ""
+      }
+    }
+    logbook += "\n\n*" + roleAlive.members.size + " citizens remain.*\n" + roleAlive
+
+    return logbook;
   }
 };

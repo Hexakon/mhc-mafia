@@ -1,9 +1,11 @@
 {
+  "gamestate": 0,
+
   "dayNo": 1,
   "night": false,
   "timeoutID": 0,
 
   "nextphase": 0,
 
-  "logbookDraft": ""
+  "logbookEntries": []
 }

@@ -23,8 +23,21 @@ Referred to as: `dataSetup` and `fnSetup`
 
 ## time.json
 (Referred to as: `dataTime` and `fnTime`)
+- Description of the server's `gamestate`. (Unused as of August 24)
+  - 0: No game
+  - 1: Signups open
+  - 2: Pregame
+  - 3: Ingame
+  - 4: Game end
 - Description of the current time phase (`dayNo` and `phase`) and the `timeoutID` associated with it.
-- Generated `logbook`s.
+- `nextPhase`'s timestamp for countdowns.
+- `logbookEntries`, an array with array entries of the format `event, [args...]`.
+  - `"death", alphaID, cause`: Player death event.
+  - `"attorney", alphaID`: Attorney protection event.
+  - `"amnesiac", role`: Amnesiac recall event.
+  - `"secretary", faction`: Secretary side event.
+  - `"reveal", alphaID, role`: Role reveal event.
+  - `"trialdeath", alphaID, voteCount`: Death by trial event.
 - Replaces part of `attri.json` in legacy versions.
 
 ## player.json
