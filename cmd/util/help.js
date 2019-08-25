@@ -53,7 +53,7 @@ const helpText = require("./help.json");
       .setDescription('Do `.help <command>` for more information about the command.')
       .addField('*Ingame*', '`.exe` `.i` `.lastwill` `.lw` `.reveal` `.w` `.whisper`')
       .addField('*Documentation*', '`.r` `.rl` `.role` `.roles` `.rolelist`')
-      .addField('*Utility*', '`.alert` `.gmt` `.help` `.ping` `.signups` `.utc`')
+      .addField('*Utility*', '`.alert` `.gmt` `.help` `.ping` `.signups` `.time` `.utc`')
       .addField('*Interactions*', '`.handshake` `.hit` `.hug` `.slap` `.spray`')
       .addField('*Self*', '`.seize`')
       .addField('*Fun*', '`.8ball` `.catfact` `.coin` `.ligma` `.rps`')
