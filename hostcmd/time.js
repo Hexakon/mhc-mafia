@@ -12,13 +12,13 @@ exports.run = (client, message, args) => {
     if (dataTime.night === true) {
       dataTime.night = false;
       message.channel.send(":sunny: **The game has been manually skipped to Day phase!**");
-      dataTime.nextphase = message.createdTimestamp() + dataSetup.dayLength;
+      dataTime.nextphase = message.createdTimestamp + dataSetup.dayLength;
       message.channel.send(":tools: This was a manual change of time. Daytime is scheduled to end at **" + $function.timeleft(dataTime.nextphase, message.createdTimestamp) + "** from now.");
       clearTimeout(dataTime.timeoutID);
     } else {
       dataTime.night = true;
       message.channel.send(":crescent_moon: **The game has been manually skipped to Night phase!**");
-      dataTime.nextphase = message.createdTimestamp() + dataSetup.nightLength;
+      dataTime.nextphase = message.createdTimestamp + dataSetup.nightLength;
       message.channel.send(":tools: This was a manual change of time. Nighttime is scheduled to end at **" + $function.timeleft(dataTime.nextphase, message.createdTimestamp) + "** from now.");
       clearTimeout(dataTime.timeoutID);
     }
@@ -36,6 +36,6 @@ exports.run = (client, message, args) => {
         }
       }
     }
-    
+
   });
 }
