@@ -44,7 +44,7 @@ exports.run = (client, message, args) => {
 
       message.channel.send("Creating logbook channel...");
       let logbook_channel = await message.channel.guild.createChannel('※logbook', 'text')
-      await logbook_channel.setParent(dataChannel.pubicCategory)
+      await logbook_channel.setParent(dataChannel.publicCategory)
       .then(channel => {channel.overwritePermissions(message.guild.id, {SEND_MESSAGES: false});});
       dataChannel.logbook = logbook_channel.id;
 
