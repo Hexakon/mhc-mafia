@@ -37,7 +37,7 @@ exports.run = (client, message, args) => {
 
         // generate player's private property
         let channel = await message.channel.guild.createChannel($index.lowerAlpha[i], 'text');
-        await channel.setParent(dataChannel.pricat)
+        await channel.setParent(dataChannel.privateCategory)
         await channel.overwritePermissions(message.guild.id, { // invisible to everyone
           VIEW_CHANNEL: false
         });
@@ -85,7 +85,7 @@ exports.run = (client, message, args) => {
     }
 
     message.channel.guild.createChannel('mafia', 'text')
-    .then(channel => {channel.setParent(dataChannel.pricat);
+    .then(channel => {channel.setParent(dataChannel.privateCategory);
                       channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
                       channel.overwritePermissions(roleDead, {SEND_MESSAGES: false});
                       channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true, SEND_MESSAGES: false});
@@ -93,7 +93,7 @@ exports.run = (client, message, args) => {
                       message.channel.send(`Mafia channel has been set to ${message.guild.channels.get(dataChannel.mafia)}.`);
     })
     message.channel.guild.createChannel('cult', 'text')
-    .then(channel => {channel.setParent(dataChannel.pricat);
+    .then(channel => {channel.setParent(dataChannel.privateCategory);
                       channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
                       channel.overwritePermissions(roleDead, {SEND_MESSAGES: false});
                       channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true, SEND_MESSAGES: false});
@@ -101,7 +101,7 @@ exports.run = (client, message, args) => {
                       message.channel.send(`Cult channel has been set to ${message.guild.channels.get(dataChannel.cult)}.`);
     })
     message.channel.guild.createChannel('interrogation_room', 'text')
-    .then(channel => {channel.setParent(dataChannel.pricat);
+    .then(channel => {channel.setParent(dataChannel.privateCategory);
                       channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
                       channel.overwritePermissions(roleDead, {SEND_MESSAGES: false});
                       channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true, SEND_MESSAGES: false});
