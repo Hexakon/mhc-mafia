@@ -7,21 +7,25 @@ exports.run = (client, message, args) => {
   var newData = args[1]
 
   if (fs.existsSync('./data/'+pathArray[0].slice(4).toLowerCase()+'.json')) {
-    eval("const "+pathArray[0]+" = require.main.require('./data/"+pathArray[0].slice(4).toLowerCase()+".json')");
-    eval("const fn = process.cwd() + '/data/"+pathArray[0].slice(4).toLowerCase()+".json'");
+    const dataX = eval("require.main.require('./data/"+pathArray[0].slice(4).toLowerCase()+".json')");
+    console.log(pathArray[0]+", "+pathArray[0].slice(4).toLowerCase())
+    console.log(JSON.stringify(eval(dataX)))
+    const fnX = eval("process.cwd() + '/data/"+pathArray[0].slice(4).toLowerCase()+".json'");
+
+
 
     if (newData !== undefined) { // if there is edit being made, aka edit mode
 
-      eval(path + " = " + newData)
+      eval(dataX.path + " = " + newData)
 
       message.channel.send("`"+path+"` has been changed to `"+newData+"`.")
 
-      eval("$function.writeFile(fn, "+pathArray[0]+")")
+      $function.writeFile(fnX, dataX)
 
     } else { // if there is no edit being made, aka view mode
 
-      message.channel.send("`"+path+"` is currently set to `"+JSON.stringify(eval(path))+"`.")
-      
+      message.channel.send("`"+path+"` is currently set to `"+JSON.stringify(eval("dataX"+path.slice(pathArray[0].length)))+"`.")
+
     }
 
   } else { // if path does not exist
