@@ -81,7 +81,7 @@ exports.run = (client, message, args) => {
 
       message.channel.send("Creating spectator channel...");
       let spec_channel = await message.channel.guild.createChannel('ethereal-existence', 'text')
-      await spec_channel.setParent(dataChannel.deadcat)
+      await spec_channel.setParent(dataChannel.deadCategory)
       .then(channel => {channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
                         channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true});
                        });
