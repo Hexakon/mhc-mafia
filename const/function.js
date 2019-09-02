@@ -143,10 +143,10 @@ module.exports = {
 
   },
 
-  logbook: function (message, phase, events, roleAlive, intro, lang) {
-    let logbook = "**- - -   "+phase.toUpperCase+"   - - -**\n*("+ new Date().toUTCString()+")*\n\n"
+  logbook: function (message, phase, events, intro, lang) {
+    let logbook = "**- - -   "+phase.toUpperCase()+"   - - -**\n*("+ new Date().toUTCString()+")*\n\n"
 
-    logbook += (typeof intro !== undefined) ? "*" + intro + "*\n\n" : ""
+    logbook += (intro !== undefined) ? "*" + intro + "*\n\n" : ""
 
     if (events.length === 0) {
       logbook += "Nothing of interest occured."
@@ -161,7 +161,7 @@ module.exports = {
         logbook += (events[i][0] === "trialdeath") ? "**" + message.guild.members.get(events[i][1]) + " has been lynched by "+events[i][2]+" votes.**" : ""
       }
     }
-    logbook += "\n\n*" + roleAlive.members.size + " citizens remain.*\n" + roleAlive
+    logbook += "\n\n*" + message.guild.roles.find("name", "Alive").members.size + " citizens remain.*\n" + message.guild.roles.find("name", "Alive")
 
     return logbook;
   }

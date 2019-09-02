@@ -16,7 +16,7 @@ exports.run = (client, message, args) => {
 
     if (newData !== undefined) { // if there is edit being made, aka edit mode
 
-      eval(dataX.path + " = " + newData)
+      eval("dataX" + path.slice(pathArray[0].length) + " = " + newData)
 
       message.channel.send("`"+path+"` has been changed to `"+newData+"`.")
 

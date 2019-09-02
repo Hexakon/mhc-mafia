@@ -12,9 +12,11 @@ exports.run = (client, message, args) => {
   async function daybreak () {
     dataTime.dayNo += 1
     dataTime.night = false
+    dataTime.nextphase = message.createdTimestamp + dataSetup.dayLength;
   }
   async function nightfall () {
     dataTime.night = true
+    dataTime.nextphase = message.createdTimestamp + dataSetup.nightLength;
   }
 
   async function toggletime () {
@@ -25,6 +27,7 @@ exports.run = (client, message, args) => {
       await nightfall()
       dataTime.timeoutID = setTimeout(toggletime, dataSetup.nightLength)
     }
+    console.log(dataTime.timeoutID)
   }
 
   toggletime().then(() => {
