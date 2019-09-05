@@ -1,18 +1,14 @@
 exports.run = (client, message, args) => {
-const data = require("./../../data/id.json");
-const dataID = data.id;
-const dataPP = data.pp;
-const dataCH = require("./../../data/ch.json");
-const dataST = require("./../../data/setup.json");
-const dataAT = require("./../../data/attri.json");
-const muted = dataAT.muted;
+const dataPlayer = require.main.require("./../../data/player.json");
+const dataChannel = require.main.require("./data/ch.json");
+const dataSetup = require.main.require("./data/setup.json");
+const dataTime = require.main.require("./data/time.json");
 
-  if (message.member.roles.find("name", "Alive") && message.author.id == dataID[dataST.int] && message.channel.parentID === dataCH.pricat && dataAT.night === true) {
+const $function = require.main.require("./const/function.js");
+
+  /*if (message.member.roles.find("name", "Alive") && $function.playersWithRole("interrogator") && message.channel.parentID === dataChannel.privateCategory && dataTime.night === true) {
 
       for (var i; i < args.length; i++) {
-        if (args[i] == "@everyone" || args[i] == "@here") {
-          args[i] = "@[REDACTED]";
-        }
         if (args[i].startsWith("http")) {
           args[i] = "<" + args[i] + ">";
         }
@@ -22,29 +18,26 @@ const muted = dataAT.muted;
 
       message.delete(100);
       message.channel.send(":microphone2: You: *"+text+"*");
-      client.channels.get(dataCH.int).send(":microphone2: **Interrogator:** *"+text+"*");
+      message.guild.channels.get(dataChannel.int).send(":microphone2: **Interrogator:** *"+text+"*");
 
-  } else {
-      for (let i in dataST.med) {
-        if (message.member.roles.find("name", "Alive") && message.channel.parentID === dataCH.pricat && message.author.id == dataID[dataST.med[i]] && dataAT.night === true) {
+  } else {*/
 
-          for (var e; e < args.length; e++) {
-            if (args[e] == "@everyone" || args[e] == "@here") {
-            args[e] = "@[REDACTED]";
-          }
-            if (args[e].startsWith("http")) {
-              args[e] = "<" + args[e] + ">";
-            }
-          }
+  for (let alphaId in $function.playersWithRole("medium")) {
+    if (message.member.roles.find("name", "Alive") && message.channel.parentID === dataChannel.privateCategory && dataPlayer.playerId[alphaId] === message.author.id && dataAT.night === true) {
 
-          let text = args.join(" "); // message content
-
-          message.delete(100);
-          message.channel.send(":crystal_ball: You: *"+text+"*");
-          client.channels.get(dataCH.dead).send(":crystal_ball: **Medium:** *"+text+"*");
-
-          break;
+      for (var e; e < args.length; e++) {
+        if (args[e].startsWith("http")) {
+          args[e] = "<" + args[e] + ">";
         }
       }
+
+      let text = args.join(" "); // message content
+
+      message.delete(100);
+      message.channel.send(":crystal_ball: You: *"+text+"*");
+      client.channels.get(dataChannel.dead).send(":crystal_ball: **Medium:** *"+text+"*");
+
+      break;
+    }
   }
 }
