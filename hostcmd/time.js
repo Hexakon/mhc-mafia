@@ -6,23 +6,26 @@ exports.run = (client, message, args) => {
 
   const $function = require.main.require("./const/function.js");
 
+  function daybreak () {
+    dataTime.dayNo += 1
+    dataTime.night = false
+    dataTime.nextphase = message.createdTimestamp + dataSetup.dayLength;
+  }
+  function nightfall () {
+    dataTime.night = true
+    dataTime.nextphase = message.createdTimestamp + dataSetup.nightLength;
+  }
 
 
-  (async () => {
-    message.channel.send((dataTime.night === true) ? ":sunny: **The game has been manually skipped to Day phase!**" : ":crescent_moon: **The game has been manually skipped to Night phase!**");
-    message.channel.send(":tools: This was a manual change of time. Use `.time` to see the length of this period.");
-    clearTimeout(dataTime.timeoutID);
-  })().then(() => {
-    if (args[0] !== "nolog") {
-      exports.run = (client, message, args) => {
-        try {
-          let cmdFile = require.main.require(`./auto/time.js`);
-          cmdFile.run(client, message, args);
-        } catch (err) {
-          console.error(err);
-        }
-      }
-    }
+  if (dataTime.night === true) daybreak(); else nightfall();
+  message.channel.send((dataTime.night === true) ? ":sunny: **The game has been updated to Day "+dataTime.dayNo+"!**" : ":crescent_moon: **The game has been updated to Night "+dataTime.dayNo+"!**");
+  message.channel.send(":tools: This was a manual change of time. Use `.time` to see the length of this period.");
 
-  });
+  $function.writeFile(fnTime, dataTime);
+
+  if (args[0].toLowerCase() === "logbook") {
+    let displayPhase = (dataTime.night === false) ? "day " : "night ";
+    $function.logbook(message, displayPhase + dataTime.dayNo, dataTime.logbookEntries)
+  }
+
 }
