@@ -1,6 +1,6 @@
 exports.run = (client, message, args) => {
-const dataPlayer = require.main.require("./../../data/player.json");
-const dataChannel = require.main.require("./data/ch.json");
+const dataPlayer = require.main.require("./data/player.json");
+const dataChannel = require.main.require("./data/channel.json");
 const dataSetup = require.main.require("./data/setup.json");
 const dataTime = require.main.require("./data/time.json");
 
@@ -22,7 +22,7 @@ const $function = require.main.require("./const/function.js");
 
   } else {*/
 
-  if (message.member.roles.find("name", "Alive") && message.channel.parentID === dataChannel.privateCategory && Array.from($function.playersWithRole("medium").values).includes(message.author.id) && dataAT.night === true) {
+  if (message.member.roles.find("name", "Alive") && message.channel.parentID === dataChannel.privateCategory && Array.from($function.playersWithRole("medium").values).includes(message.author.id) && dataTime.night === true) {
 
     for (var e of args) {
       if (e.startsWith("http")) {

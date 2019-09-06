@@ -59,12 +59,12 @@ client.on("message", (message) => { // split command message into base (cmd) and
   const $function = require("./const/function.js");
 
   if (message.channel.id == dataChannel.int && message.author.bot == false) { // INTERROGATION MIRROR
-    for (let alphaId of $function.playersWithRole("interrogator")) {
+    for (let alphaId of $function.playersWithRole("interrogator").keys()) {
       message.guild.channels.get(dataPlayer.channelId[alphaId]).send(":microphone2: **"+message.member.displayName+"**: *"+message.content+"*");
     }
   }
   if (message.channel.id == dataChannel.dead && message.author.bot == false && dataTime.night == true) { // AFTERLIFE MIRROR
-    for (let alphaId of $function.playersWithRole("medium")) {
+    for (let alphaId of $function.playersWithRole("medium").keys()) {
       client.channels.get(dataPlayer.channelId[alphaId]).send(":crystal_ball: **"+message.member.displayName+"**: *"+message.content+"*");
     }
   }

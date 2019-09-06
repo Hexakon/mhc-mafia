@@ -3,15 +3,14 @@ module.exports = {
   playersWithRole: function (valid) {
   // returns an array or string of the alphabetical IDs of players with the specified role "valid";
 
-    const $role = require.main.require("./const/role.json"); // requiring the list of unique roles.
     const dataPlayer = require.main.require("./data/player.json"); // requiring the list of player info.
 
     let array_keys = Object.keys(dataPlayer.role).filter(key => dataPlayer.role[key] === valid);
     // get the alphabetical ID list of players who has the role 'valid.
 
     let array_map = new Array();
-    for (let item of list) {
-      array_map.push([item, dataPlayer.playerId[item])
+    for (let item of array_keys) {
+      array_map.push([item, dataPlayer.userId[item])
     }
 
     return new Map(array_map);

@@ -18,7 +18,7 @@ exports.run = (client, message, args) => {
 
 
   if (dataTime.night === true) daybreak(); else nightfall();
-  message.channel.send((dataTime.night === true) ? ":sunny: **The game has been updated to Day "+dataTime.dayNo+"!**" : ":crescent_moon: **The game has been updated to Night "+dataTime.dayNo+"!**");
+  message.channel.send((dataTime.night === true) ? ":crescent_moon: **The game has been updated to Night "+dataTime.dayNo+"!**" : ":sunny: **The game has been updated to Day "+dataTime.dayNo+"!**");
   message.channel.send(":tools: This was a manual change of time. Use `.time` to see the length of this period.");
 
   $function.writeFile(fnTime, dataTime);
