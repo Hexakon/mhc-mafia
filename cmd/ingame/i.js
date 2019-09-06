@@ -22,22 +22,18 @@ const $function = require.main.require("./const/function.js");
 
   } else {*/
 
-  for (let alphaId in $function.playersWithRole("medium")) {
-    if (message.member.roles.find("name", "Alive") && message.channel.parentID === dataChannel.privateCategory && dataPlayer.playerId[alphaId] === message.author.id && dataAT.night === true) {
+  if (message.member.roles.find("name", "Alive") && message.channel.parentID === dataChannel.privateCategory && Array.from($function.playersWithRole("medium").values).includes(message.author.id) && dataAT.night === true) {
 
-      for (var e; e < args.length; e++) {
-        if (args[e].startsWith("http")) {
-          args[e] = "<" + args[e] + ">";
-        }
+    for (var e of args) {
+      if (e.startsWith("http")) {
+        e = "<" + e + ">";
       }
-
-      let text = args.join(" "); // message content
-
-      message.delete(100);
-      message.channel.send(":crystal_ball: You: *"+text+"*");
-      client.channels.get(dataChannel.dead).send(":crystal_ball: **Medium:** *"+text+"*");
-
-      break;
     }
+
+    let text = args.join(" "); // message content
+
+    message.delete(100);
+    message.channel.send(":crystal_ball: You: *"+text+"*");
+    client.channels.get(dataChannel.dead).send(":crystal_ball: **Medium:** *"+text+"*");
   }
 }

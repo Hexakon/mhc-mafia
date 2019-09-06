@@ -59,11 +59,13 @@ client.on("message", (message) => { // split command message into base (cmd) and
   const $function = require("./const/function.js");
 
   if (message.channel.id == dataChannel.int && message.author.bot == false) { // INTERROGATION MIRROR
-    message.guild.channels.get(dataPlayer.channelId[$function.playersWithRole("interrogator")]).send(":microphone2: **"+message.member.displayName+"**: *"+message.content+"*");
+    for (let alphaId of $function.playersWithRole("interrogator")) {
+      message.guild.channels.get(dataPlayer.channelId[alphaId]).send(":microphone2: **"+message.member.displayName+"**: *"+message.content+"*");
+    }
   }
   if (message.channel.id == dataChannel.dead && message.author.bot == false && dataTime.night == true) { // AFTERLIFE MIRROR
-    for (var i=0; i < $function.playersWithRole("medium").length; i++) {
-      client.channels.get(dataPlayer.channelId[$function.playersWithRole("medium")]).send(":crystal_ball: **"+message.member.displayName+"**: *"+message.content+"*");
+    for (let alphaId of $function.playersWithRole("medium")) {
+      client.channels.get(dataPlayer.channelId[alphaId]).send(":crystal_ball: **"+message.member.displayName+"**: *"+message.content+"*");
     }
   }
 

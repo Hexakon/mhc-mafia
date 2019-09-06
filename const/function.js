@@ -6,14 +6,16 @@ module.exports = {
     const $role = require.main.require("./const/role.json"); // requiring the list of unique roles.
     const dataPlayer = require.main.require("./data/player.json"); // requiring the list of player info.
 
-    let list = Object.keys(dataPlayer.role).filter(key => dataPlayer.role[key] === valid);
+    let array_keys = Object.keys(dataPlayer.role).filter(key => dataPlayer.role[key] === valid);
     // get the alphabetical ID list of players who has the role 'valid.
 
-    if ($role.unique.includes(valid)) { // if role is unique, output string. if not, output array. This is to separate unique and non-unique usage more easily.
-      return list[0];
-    } else {
-      return list;
+    let array_map = new Array();
+    for (let item of list) {
+      array_map.push([item, dataPlayer.playerId[item])
     }
+
+    return new Map(array_map);
+    // map with ingame id as key and discord user id as value
 
   },
 
