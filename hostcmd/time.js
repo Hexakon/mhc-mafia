@@ -2,6 +2,7 @@ exports.run = (client, message, args) => {
   const fs = require('fs');
   const dataSetup = require.main.require("./data/setup.json");
   const dataTime = require.main.require("./data/time.json");
+  const dataChannel = require.main.require("./data/channel.json");
   const fnTime = process.cwd() + "/data/time.json";
 
   const $function = require.main.require("./const/function.js");
@@ -25,7 +26,7 @@ exports.run = (client, message, args) => {
 
   if (args[0].toLowerCase() === "logbook") {
     let displayPhase = (dataTime.night === false) ? "day " : "night ";
-    message.channel.send($function.logbook(message, displayPhase + dataTime.dayNo, dataTime.logbookEntries))
+    message.guild.channels.get(dataChannel.logbook).send($function.logbook(message, displayPhase + dataTime.dayNo, dataTime.logbookEntries))
   }
 
 }

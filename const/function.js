@@ -160,9 +160,10 @@ module.exports = {
         logbook += (events[i][0] === "secretary") ? ":bulb: **A Secretary has sided with the " + events[i][1] + "!**" : ""
         logbook += (events[i][0] === "reveal") ? ":loudspeaker: **" + message.guild.members.get(events[i][1]) + " has revealed themselves as " + events[i][2] + "!**" : ""
         logbook += (events[i][0] === "trialdeath") ? "**" + message.guild.members.get(events[i][1]) + " has been lynched by "+events[i][2]+" votes.**" : ""
+        logbook += "\n\n"
       }
     }
-    logbook += "\n\n*" + message.guild.roles.find("name", "Alive").members.size + " citizens remain.*\n" + message.guild.roles.find("name", "Alive")
+    logbook += "*" + message.guild.roles.find("name", "Alive").members.size + " citizens remain.*\n" + message.guild.roles.find("name", "Alive")
 
     return logbook;
   }
