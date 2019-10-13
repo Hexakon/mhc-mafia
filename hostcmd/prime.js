@@ -10,7 +10,6 @@ exports.run = (client, message, args) => {
   const roleDead = message.guild.roles.find('name', 'Dead');
   const roleSpec = message.guild.roles.find('name', 'Specter');
 
-  const $role = require.main.require("./const/role.json");
   const $nicks = require.main.require("./const/nicks.json");
   const $function = require.main.require("./const/function.js");
   const $index = require.main.require("./const/index.json");
@@ -22,7 +21,32 @@ exports.run = (client, message, args) => {
 
     message.channel.send(":construction: **The game is being prepared, please stand by.** :construction:");
 
-    async function assignid () {
+    message.channel.guild.createChannel('mafia', 'text')
+    .then(channel => {channel.setParent(dataChannel.privateCategory);
+                      channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
+                      channel.overwritePermissions(roleDead, {SEND_MESSAGES: false});
+                      channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true, SEND_MESSAGES: false});
+                      dataChannel.mafia = channel.id;
+                      message.channel.send(`Mafia channel has been set to ${message.guild.channels.get(dataChannel.mafia)}.`);
+    });
+    message.channel.guild.createChannel('cult', 'text')
+    .then(channel => {channel.setParent(dataChannel.privateCategory);
+                      channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
+                      channel.overwritePermissions(roleDead, {SEND_MESSAGES: false});
+                      channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true, SEND_MESSAGES: false});
+                      dataChannel.cult = channel.id;
+                      message.channel.send(`Cult channel has been set to ${message.guild.channels.get(dataChannel.cult)}.`);
+    });
+    message.channel.guild.createChannel('interrogation_room', 'text')
+    .then(channel => {channel.setParent(dataChannel.privateCategory);
+                      channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
+                      channel.overwritePermissions(roleDead, {SEND_MESSAGES: false});
+                      channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true, SEND_MESSAGES: false});
+                      dataChannel.int = channel.id;
+                      message.channel.send(`Interrogation channel has been set to ${message.guild.channels.get(dataChannel.int)}.`);
+    });
+
+    (async () => {
       let i = 0;
       let user = "";
 
@@ -62,15 +86,13 @@ exports.run = (client, message, args) => {
         // assign alphabet as key to snowflake as value
         dataPlayer.userId[$index.lowerAlpha[i]] = sf;
 
-        let rolepointer = "";
-
         i++;
       }
 
       // call for the setup's original role list, shuffle it and store it in the final list to be used.
       let rolelistFinal = $function.shuffle($function.rolegen(dataSetup.rolelist));
 
-      // display the first gamelog in chat
+      // generate the initial list of players and roles ("user ping = role name" pairs)
       let displaylist = "```";
       for (let [i, userId] of passengerList.entries()) {
       // IN CASE I FORGET: entries() array method returns an array iterable for both index and value
@@ -81,35 +103,8 @@ exports.run = (client, message, args) => {
         displaylist = displaylist+"\n"+userObject+" = "+rolelistFinal[i]; // add a row of text to displaylist.
 
       }
-      message.channel.send(displaylist+"\n```")
-    }
-
-    message.channel.guild.createChannel('mafia', 'text')
-    .then(channel => {channel.setParent(dataChannel.privateCategory);
-                      channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
-                      channel.overwritePermissions(roleDead, {SEND_MESSAGES: false});
-                      channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true, SEND_MESSAGES: false});
-                      dataChannel.mafia = channel.id;
-                      message.channel.send(`Mafia channel has been set to ${message.guild.channels.get(dataChannel.mafia)}.`);
-    })
-    message.channel.guild.createChannel('cult', 'text')
-    .then(channel => {channel.setParent(dataChannel.privateCategory);
-                      channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
-                      channel.overwritePermissions(roleDead, {SEND_MESSAGES: false});
-                      channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true, SEND_MESSAGES: false});
-                      dataChannel.cult = channel.id;
-                      message.channel.send(`Cult channel has been set to ${message.guild.channels.get(dataChannel.cult)}.`);
-    })
-    message.channel.guild.createChannel('interrogation_room', 'text')
-    .then(channel => {channel.setParent(dataChannel.privateCategory);
-                      channel.overwritePermissions(message.guild.id, {VIEW_CHANNEL: false});
-                      channel.overwritePermissions(roleDead, {SEND_MESSAGES: false});
-                      channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true, SEND_MESSAGES: false});
-                      dataChannel.int = channel.id;
-                      message.channel.send(`Interrogation channel has been set to ${message.guild.channels.get(dataChannel.int)}.`);
-    })
-
-    assignid().then(() => {
+      message.channel.send(displaylist+"\n```") // display the list in the same chat
+    }).then(() => {
       $function.writeFile(fnPlayer, dataPlayer);
       $function.writeFile(fnChannel, dataChannel);
       message.channel.send("**The game has been set up.**");

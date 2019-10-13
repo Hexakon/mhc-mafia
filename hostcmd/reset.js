@@ -16,7 +16,8 @@ exports.run = (client, message, args) => {
   const $index = require.main.require("./const/index.json");
 
   if (message.author.id == 132262525818503168 && args[0] == "YESIMSURE") {
-    async function resetgame() {
+
+    (async () => {
 
       message.channel.send(":construction: **The game is being reset, please stand by.** :construction:");
 
@@ -28,13 +29,13 @@ exports.run = (client, message, args) => {
       }
 
       message.channel.send("Deleting private channels...");
-      client.channels.get(dataChannel.privateCategory).children.forEach((value, key, map) => {value.delete();});
+      client.channels.get(dataChannel.privateCategory).children.forEach((value) => {value.delete();});
 
       message.channel.send("Deleting public channels...");
-      client.channels.get(dataChannel.publicCategory).children.forEach((value, key, map) => {value.delete();});
+      client.channels.get(dataChannel.publicCategory).children.forEach((value) => {value.delete();});
 
       message.channel.send("Deleting afterlife channels...");
-      client.channels.get(dataChannel.deadCategory).children.forEach((value, key, map) => {value.delete();});
+      client.channels.get(dataChannel.deadCategory).children.forEach((value) => {value.delete();});
 
       message.channel.send("Creating setup channel...");
       let setup_channel = await message.channel.guild.createChannel('※setup', 'text')
@@ -86,9 +87,7 @@ exports.run = (client, message, args) => {
                         channel.overwritePermissions(roleSpec, {VIEW_CHANNEL: true});
                        });
       dataChannel.spec = spec_channel.id;
-    }
-
-      resetgame().then(() => {
+    })().then(() => {
         $function.writeFile(fnPlayer, dataPlayer);
         $function.writeFile(fnWhisper, dataWhisper);
         $function.writeFile(fnChannel, dataChannel);

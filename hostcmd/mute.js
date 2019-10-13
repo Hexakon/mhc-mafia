@@ -1,5 +1,4 @@
 exports.run = (client, message, args) => {
-  const fs = require('fs');
   const dataPlayer = require.main.require("./data/player.json");
   const fnPlayer = process.cwd() + "/data/id.json";
   const dataEffect = require.main.require("./data/effect.json");

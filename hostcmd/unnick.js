@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+exports.run = (client, message) => {
 
   const aliveRole = message.guild.roles.find('name', 'Alive')
   const deadRole = message.guild.roles.find('name', 'Dead')

@@ -10,7 +10,7 @@ module.exports = {
 
     let array_map = new Array();
     for (let item of array_keys) {
-      array_map.push([item, dataPlayer.userId[item])
+      array_map.push([item, dataPlayer.userId[item]])
     }
 
     return new Map(array_map);
@@ -30,7 +30,7 @@ module.exports = {
       var cache = newArray[i]; // old item to be replaced
       newArray[i] = newArray[jumble]; // old item is replaced by random item
       newArray[jumble] = cache; // random item is replaced by old item
-    };
+    }
     return newArray;
   },
 
@@ -76,6 +76,17 @@ module.exports = {
 
   rolegen: function (rolelist) {
 
+    function shuffle(oldArray) { // code provided by chocoparrot - see exports.shuffle above for comments
+      let newArray = Array.from(oldArray);
+      for (var i = 0; i < newArray.length; i++) {
+        var jumble = Math.floor(Math.random() * i);
+        var cache = newArray[i];
+        newArray[i] = newArray[jumble];
+        newArray[jumble] = cache;
+      }
+      return newArray;
+    }
+
     const $role = require.main.require("./const/role.json"); // requiring role information.
 
     let rolelistNew = []; // empty array of new roles.
@@ -120,16 +131,6 @@ module.exports = {
     // response to mutually exclusive roles
     if (rolelistNew.includes("mayor") && rolelistNew.includes("marshal")) {
 
-      function shuffle(oldArray) { // code provided by chocoparrot - see exports.shuffle above for comments
-        let newArray = Array.from(oldArray);
-        for (var i = 0; i < newArray.length; i++) {
-          var jumble = Math.floor(Math.random() * i);
-          var cache = newArray[i];
-          newArray[i] = newArray[jumble];
-          newArray[jumble] = cache;
-        };
-        return newArray;
-      }
       let shuffledList = shuffle(rolelistNew.filter(role => role === "mayor" || role === "marshal"));
 
       // same logic as above
@@ -144,7 +145,7 @@ module.exports = {
 
   },
 
-  logbook: function (message, phase, events, intro, lang) {
+  logbook: function (message, phase, events, intro) {
     let logbook = "**- - -   "+phase.toUpperCase()+"   - - -**\n*("+ new Date().toUTCString()+")*\n\n"
 
     logbook += (intro !== undefined) ? "*" + intro + "*\n\n" : ""

@@ -1,5 +1,4 @@
 exports.run = (client, message, args) => {
-  const fs = require('fs');
   const dataPlayer = require.main.require("./data/player.json");
   const dataWill = require.main.require("./data/lastwill.json");
 

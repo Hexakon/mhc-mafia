@@ -55,7 +55,6 @@ client.on("message", (message) => { // split command message into base (cmd) and
   const dataChannel = require("./data/channel.json");
   const dataTime = require("./data/time.json");
   const dataPlayer = require("./data/player.json");
-  const dataWhisper = require("./data/whisper.json");
   const $function = require("./const/function.js");
 
   if (message.channel.id == dataChannel.int && message.author.bot == false) { // INTERROGATION MIRROR
@@ -71,27 +70,24 @@ client.on("message", (message) => { // split command message into base (cmd) and
 
   if (message.channel.id == dataChannel.logbook) { // REACTIONS FOR LOGBOOK
 
-    async function react() {
+    (async () => {
       await message.react(message.guild.emojis.get('444437356540592128'));
       await message.react(message.guild.emojis.get('513131143202340866'));
-    }
+    })()
 
-    react();
   }
 
   if (message.channel.id == dataChannel.trial && message.author.bot == false) { // POLL REACTIONS FOR TRIAL
 
-    const $index = require("./const/index.json")
+    const $index = require("./const/index.json");
 
-    async function indicate() {
+    (async () => {
       for (let i = 0; i < 26; i++) { // iterating for the length of the alphabet
         if (message.isMentioned(dataPlayer.userId[$index.lowerAlpha[i]])) {
           await message.react($index.indicators[i]); // react with corresponding letter ID from the array above
         }
       }
-    }
-
-    indicate();
+    })()
   }
 
   if (message.author.bot) return;

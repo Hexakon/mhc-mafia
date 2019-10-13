@@ -1,5 +1,4 @@
-exports.run = (client, message, args) => {
-  const fs = require('fs');
+exports.run = (client, message) => {
   const dataPlayer = require.main.require("./data/player.json");
   const $index = require.main.require("./const/index.json");
   let text = "";

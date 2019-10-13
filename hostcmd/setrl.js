@@ -1,8 +1,4 @@
 exports.run = (client, message, args) => {
-  const dataPlayer = require.main.require("./data/player.json");
-  const fnPlayer = process.cwd() + "/data/player.json";
-  const dataChannel = require.main.require("./data/channel.json");
-  const fnChannel = process.cwd() + "/data/channel.json";
   const dataSetup = require("./../data/setup.json");
   const fnSetup = process.cwd() + "/data/setup.json";
 

@@ -1,4 +1,7 @@
 exports.run = (client, message, args) => {
+
+  // THIS COMMAND DOES NOT WORK YET DUE TO MANUAL/AUTOMATIC BRANCH VERSION DIFFERENCES, AND SHOULD NOT BE USED.
+
   const dataTime = require.main.require("./data/time.json");
   const fnTime = process.cwd() + "/data/time.json";
   const dataSetup = require.main.require("./data/setup.json");

@@ -1,7 +1,5 @@
 exports.run = (client, message, args) => {
-const fs = require('fs');
 const dataPlayer = require.main.require("./data/player.json");
-const dataChannel = require.main.require("./data/channel.json");
 const dataWhisper = require.main.require("./data/whisper.json");
 const fnWhisper = process.cwd() + "/data/whisper.json";
 const $function = require.main.require("./const/function.js")

@@ -1,5 +1,4 @@
 exports.run = (client, message, args) => {
-  const fs = require('fs');
   const dataChannel = require.main.require("./data/channel.json");
   const dataPlayer = require.main.require("./data/player.json");
   const dataSetup = require.main.require("./data/setup.json");

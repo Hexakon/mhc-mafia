@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+exports.run = (client, message) => {
   const dataChannel = require.main.require("./data/channel.json");
   const fnChannel = process.cwd() + "/data/channel.json";
 
