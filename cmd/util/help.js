@@ -54,8 +54,8 @@ const helpText = require("./help.json");
       .addField('*Ingame*', '`.exe` `.i` `.lastwill` `.lw` `.reveal` `.w` `.whisper`')
       .addField('*Documentation*', '`.r` `.rl` `.role` `.roles` `.rolelist`')
       .addField('*Utility*', '`.alert` `.gmt` `.help` `.ping` `.signups` `.time` `.utc`')
-      .addField('*Interactions*', '`.handshake` `.hit` `.hug` `.slap` `.spray`')
-      .addField('*Self*', '`.seize`')
+      .addField('*Interactions*', '`.handshake` `.hit` `.hug` `.slap` `.spray` `.vibecheck`')
+      .addField('*Self*', '`.70alternativeaccounts` `.calloutpost` `.seize`')
       .addField('*Fun*', '`.8ball` `.catfact` `.coin` `.ligma` `.rps`')
       .setTimestamp()
 

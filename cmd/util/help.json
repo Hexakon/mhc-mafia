@@ -135,6 +135,21 @@
     "type": "Interactions",
     "description": "spray water at"
   },
+  "vibecheck": {
+    "name": "vibecheck",
+    "type": "Interactions",
+    "description": "perform a vibe check at"
+  },
+  "70alternativeaccounts": {
+    "name": "70alternativeaccounts",
+    "type": "Self",
+    "description": "Reveal your true power and assert your dominance! They will never find your main!"
+  },
+  "calloutpost": {
+    "name": "calloutpost",
+    "type": "Self",
+    "description": "Type up an angry call out post and submit it on a social media!"
+  },
   "seize": {
     "name": "seize",
     "type": "Self",
