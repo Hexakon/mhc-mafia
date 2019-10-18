@@ -94,17 +94,18 @@ exports.run = (client, message, args) => {
 
       // generate the initial list of players and roles ("user ping = role name" pairs)
       let displaylist = "```";
-      for (let [i, userId] of passengerList.entries()) {
-      // IN CASE I FORGET: entries() array method returns an array iterable for both index and value
-
+      
+      i=0; // reset iterator counter for obvious reasons
+      for (let sf of passengerList) {
+        
         dataPlayer.role[$index.lowerAlpha[i]] == rolelistFinal[i] // save user role
 
-        let userObject = rolePass.members.get(userId);
-        displaylist = displaylist+"\n"+userObject+" = "+rolelistFinal[i]; // add a row of text to displaylist.
-
+        displaylist = displaylist+"\n"+rolePass.members.get(sf)+" = "+rolelistFinal[i]; // add a row of text to displaylist.
+        
+        i++
       }
       message.channel.send(displaylist+"\n```") // display the list in the same chat
-    }).then(() => {
+    })().then(() => {
       $function.writeFile(fnPlayer, dataPlayer);
       $function.writeFile(fnChannel, dataChannel);
       message.channel.send("**The game has been set up.**");
