@@ -1,5 +1,4 @@
 exports.run = (client, message, args) => {
-  const $inout = require.main.require("./const/inout.json");
   const flavor = [""]
   const action = ["<:communism:445185741530726410>","wants to seize the means of production!"]
 
