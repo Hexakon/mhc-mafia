@@ -12,14 +12,27 @@ Referred to as: `$index`
 Referred to as: `$function`
 - Commonly used functions throughout the bot.
 
-## role.json
-(Referred to as: `$role`)
+## rolelist.json
+(Referred to as: `$roleList`)
 - All role names sorted by category.
 - Replaces `roles.json` and `roletype.json` (use `Object.keys()` instead) in legacy versions.
 
+## rolemeta.json
+(Referred to as: `$roleMeta`)
+- All meta role data used internally for edge case comparisons and by `.role`.
+- Separated into `always` and "state" (`0`, `1` etc) objects, where `always` always applies, but only one "state" object applies at a time as specified in the `data/ability.json` file.
+- Observed keys (and default value if undefined):
+  - `vote`: Defaults to **1**.
+  - `attack`: Defaults to **0**. Includes attack tier-equivalent abilities.
+  - `defense`: Defaults to **0**.
+  - `detection`: Defaults to **false**.
+  - `control`: Defaults to **false**.
+  - `roleblock`: Defaults to **false**.
+  - `absence`: Defaults to **false**.
+
 ## roleinfo.json
 (Referred to as: `$roleInfo`)
-- All detailed role information and various display options used in the command `.role`.
+- All role information that is human-readable, used primarily by `.role`.
 
 ## nicknames.json
 (Referred to as: `$nicknames`)

@@ -1,0 +1,282 @@
+{
+  "ambusher": {
+    "always": {
+      "attack": 1
+    }
+  },
+  "anesthetist": {
+  },
+  "blackmailer": {
+  },
+  "consort": {
+    "always": {
+      "roleblock": true
+    }
+  },
+  "coroner": {
+    "always": {
+      "control": true
+    }
+  },
+  "disguiser": {
+  },
+  "forger": {
+    "always": {
+      "control": true
+    }
+  },
+  "framer": {
+    "always": {
+    }
+  },
+  "godfather": {
+    "always": {
+      "attack": 1,
+      "defense": 1,
+      "detection": true
+    }
+  },
+  "hypnotist": {
+    "always": {
+      "control": true
+    }
+  },
+  "inspector": {
+  },
+  "janitor": {
+  },
+  "kidnapper": {
+    "always": {
+      "attack": 3
+    }
+  },
+  "lurker": {
+  },
+  "machinist": {
+    "always": {
+      "attack": 2,
+      "control": true,
+      "roleblock": true
+    }
+  },
+  "mafioso": {
+    "always": {
+      "attack": 1
+    }
+  },
+  "poisoner": {
+    "always": {
+      "attack": 3
+    }
+  },
+  "signmaker": {
+    "always": {
+    }
+  },
+
+
+
+  "amnesiac": {
+  },
+  "anomaly": {
+  },
+  "arsonist": {
+    "always": {
+      "attack": 3,
+      "detection": true
+    }
+  },
+  "bountyhunter": {
+  },
+  "cultist": {
+    "always": {
+      "attack": 1
+    }
+  },
+  "delinquent": {
+    "always": {
+      "attack": 1
+    }
+  },
+  "demoman": {
+    "always": {
+      "defense": 1
+    },
+    "0": {
+      "attack": 0,
+      "detection": true
+    },
+    "1": {
+      "attack": 2,
+      "detection": false
+    }
+  },
+  "guardianangel": {
+  },
+  "hitman": {
+    "always": {
+      "attack": 1,
+      "detection": true
+    }
+  },
+  "jigsaw": {
+    "always": {
+      "attack": 3,
+      "detection": true
+    }
+  },
+  "juggernaut": {
+    "0": {
+      "attack": 1,
+      "detection": true
+    },
+    "1": {
+      "defense": 1,
+      "attack": 1,
+      "detection": true
+    },
+    "2": {
+      "defense": 1,
+      "attack": 2
+    },
+    "3": {
+      "defense": 2,
+      "attack": 2
+    }
+  },
+  "lunatic": {
+    "always": {
+      "attack": 3,
+      "detection": true
+    }
+  },
+  "secretary": {
+  },
+  "serialkiller": {
+    "always": {
+      "attack": 1
+    }
+  },
+  "survivor": {
+    "0": {
+      "defense": 0
+    },
+    "1": {
+      "defense": 1
+    }
+  },
+  "witch": {
+    "always": {
+      "detection": true,
+      "control": true,
+      "roleblock": true
+    },
+    "0": {
+      "defense": 1
+    },
+    "1": {
+      "defense": 0
+    }
+  },
+
+
+
+  "agent": {
+  },
+  "attorney": {
+  },
+  "bodyguard": {
+    "always": {
+      "attack": 2
+    },
+    "0": {
+      "defense": 0
+    },
+    "1": {
+      "defense": 1
+    }
+  },
+  "crusader": {
+    "always": {
+      "attack": 1
+    }
+  },
+  "detective": {
+  },
+  "doctor": {
+    "always": {
+      "detection": true
+    },
+    "0": {
+      "defense": 0
+    },
+    "1": {
+      "defense": 2
+    }
+  },
+  "driver": {
+  },
+  "enforcer": {
+    "always": {
+      "attack": 1
+    }
+  },
+  "escort": {
+    "always": {
+      "roleblock": true
+    }
+  },
+  "exorcist": {
+    "always": {
+      "attack": 3
+    }
+  },
+  "interrogator": {
+    "always": {
+      "attack": 3
+    }
+  },
+  "landlord": {
+  },
+  "lookout": {
+  },
+  "marshal": {
+    "0": {
+      "absence": false
+    },
+    "1": {
+      "absence": true 
+    }
+  },
+  "mayor": {
+    "0": {
+      "vote": 1,
+      "absence": false
+    },
+    "1": {
+      "vote": 3,
+      "absence": true 
+    }
+  },
+  "medium": {
+  },
+  "resurrector": {
+  },
+  "sheriff": {
+  },
+  "tracker": {
+  },
+  "veteran": {
+    "always": {
+      "attack": 2,
+      "control": true,
+      "roleblock": true
+    },
+    "0": {
+      "defense": 0
+    },
+    "1": {
+      "defense": 2
+    }
+  }
+}

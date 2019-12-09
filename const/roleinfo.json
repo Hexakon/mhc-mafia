@@ -1,55 +1,73 @@
 {
   "ambusher": {
-    "name": "Ambusher (amb)",
+    "name": "Ambusher",
+    "alias": ["amb"],
     "alignment": "Mafia Killing",
-    "ability": "- Hide outside a player's house, dealing a Normal Attack towards one random visitor.",
-    "attribute": "- __Last MK:__ Attack all visitors with a Special Attack.\n- Access to Mafia chat."
+    "desc": ["On every night, you may hide outside a citizen's house, and deal a Normal attack towards one random visitor that night."," Should you be the last remaining Mafia Killing role, you will deal Special attacks towards all visitors."],
+    "ability": "- Hide outside a player's house, dealing Normal attack towards one random visitor.",
+    "attribute": "- __Last MK:__ Attack all visitors with a Special attack.\n- Access to Mafia chat."
   },
   "anesthetist": {
-    "name": "Anesthetist (anes)",
+    "name": "Anesthetist",
+    "alias": ["anes", "ane"],
     "alignment": "Mafia Deception",
+    "desc": ["On every night, you may drug a citizen. This will hide all status messages that they should have gotten that night, except for death confirmation and the knowledge that they were drugged."],
     "ability": "- Drug a player, hiding all status messages that they should have gotten that night.",
     "attribute": "- Access to Mafia chat."
   },
   "blackmailer": {
-    "name": "Blackmailer (bm)",
+    "name": "Blackmailer",
+    "alias": ["bm", "black"],
     "alignment": "Mafia Support",
-    "ability": "- Blackmail a player, preventing them from talking in any channel for 24 hours.",
+    "desc": ["On every night, you may blackmail a citizen, which grants them the __Silenced__ status effect for one day cycle. This will prevent them from talking in any channel for 1 entire day cycle.","You can also hear all whispers during the game."],
+    "ability": "- Blackmail a player, preventing them from talking in public and faction channels for one full day cycle.",
     "attribute": "- See content of every whisper.\n- Access to Mafia chat."
   },
   "consort": {
     "name": "Consort",
     "alignment": "Mafia Support",
-    "ability": "- Roleblock a player.",
-    "attribute": "- Will know if target has roleblock immunity.\n- Will die if roleblocking a Serial Killer or a Demoman with a bomb.\n- Roleblock Immunity\n- Access to Mafia chat."
+    "desc": ["On every night, you may __roleblock__ a citizen. If they do not have *Roleblock Immunity*, you will prevent them from using their ability for the night.","You will know if your target has *Roleblock Immunity* and could not be roleblocked.","You also have permanent *Roleblock Immunity* yourself."],
+    "ability": "- __Roleblock__ a player.",
+    "attribute": "- Will know if target has *Roleblock Immunity*.\n- Roleblock Immunity\n- Access to Mafia chat."
   },
   "coroner": {
     "name": "Coroner",
+    "alias": ["cor"],
     "alignment": "Mafia Deception",
+    "desc": ["On every night, you may forge the death cause of a citizen. If your target dies on the same night, the forged death cause will display in logbook instead.","Successfully forging thrice in a game will create a Logbook announcement, stating that a Coroner is in the game."],
     "ability": "- Forge the death cause of a player, if they die on the same night.",
-    "attribute": "- Forging more than twice will reveal that there is a Coroner in-game.\n- Access to Mafia chat."
+    "attribute": "- Successfully forging thrice will reveal that there is a Coroner in-game.\n- Access to Mafia chat."
   },
   "disguiser": {
-    "name": "Disguiser (disg)",
+    "name": "Disguiser",
+    "shortname": ["disg"],
     "alignment": "Mafia Deception",
-    "ability": "- Select a player to disguise as their role.\n- If target dies on the same night, target will appear as Disguiser (first disguise) or previous disguise.",
-    "attribute": "- Disguise is displayed to Detectives, Sheriffs and Secretaries.\n- Disguise is displayed in logbook entries.\n- Access to Mafia chat."
+    "desc": ["On every night, you may select one citizen to disguise as their role. This will be seen by all role-investigating abilities and in the Logbook instead of your true identity.","If your target dies on the same night, their role will display as your previous identity in the Logbook.","You will not know what role your disguise is."],
+    "ability": "- Select a player to disguise as their role.\n- If target dies on the same night, target will appear as the previously assumed identity.",
+    "attribute": "- Disguise is displayed to Detectives, Sheriffs, Inspectors, Witches and Secretaries.\n- Disguise is displayed in logbook entries.\n- Access to Mafia chat."
   },
   "forger": {
     "name": "Forger",
     "alignment": "Mafia Deception",
+    "desc": ["On every night, you may attempt to forge a citizen's Last Will. If they die on the same night, your forged Last Will will show up in the Logbook instead, and only you may read their original Will.","You also possess permanent *Control Immunity*."],
     "ability": "- Forge the Last Will of up to 2 players.",
-    "attribute": "- Ability will not be consumed if target dies at daytime.\n- Control Immunity\n- Roleblock Immunity\n- Access to Mafia chat."
+    "attribute": "- Ability will not be consumed if target dies at daytime.\n- Control Immunity\n- Access to Mafia chat."
   },
   "framer": {
     "name": "Framer",
     "alignment": "Mafia Deception",
-    "ability": "- Targeting non-Mafia: Frame a player to make them appear as a Framer to Sheriffs and Detectives.\n- Targeting Mafia/Self: Clean a player to give them Detection Immunity against Sheriffs.",
+    "desc": ["On every night, you may either frame a non-Mafia, or clean a Mafia member (including yourself).","Framing a non-Mafia citizen will make them appear as guilty to Sheriffs and Secretaries.","Cleaning a Mafia member (including yourself) will grant them *Detection Immunity*, which makes them appear as innocent to Sheriffs and Secretaries."],
+    "ability": "- Targeting non-Mafia: Frame a player to make them appear as a Framer to Sheriffs and Detectives.\n- Targeting Mafia/Self: Clean a player to give them *Detection Immunity* against Sheriffs.",
     "attribute": "- Access to Mafia chat."
   },
+  "farmer": {
+    "redirect": "framer"
+  },
   "godfather": {
-    "name": "Godfather (gf)",
+    "name": "Godfather",
+    "alias": ["gf"],
     "alignment": "Mafia Killing",
+    "desc": ["On every night, you may either frame a non-Mafia, or clean a Mafia member (including yourself).","Framing a non-Mafia citizen will make them appear as guilty to Sheriffs and Secretaries.","Cleaning a Mafia member (including yourself) will grant them *Detection Immunity*, which makes them appear as innocent to Sheriffs and Secretaries."],
     "ability": "- Order the Mafioso to attack a player.\n- Attack the chosen target if Mafioso cannot attack",
     "attribute": "- Detection Immunity\n- Night Immunity\n- Access to Mafia chat."
   },
@@ -214,43 +232,6 @@
     "attribute": "- If roleblocked, kill the roleblocker.\n- Know the name of every other Serial Killer in the game.\n- Night Immunity",
     "goal": "Kill everyone who opposes you."
   },
-  "stalker": {
-    "name": "Stalker (st/stalk)",
-    "alignment": "Neutral Chaos",
-    "ability": "- Game start: Get a random townie or mafia as Obsession.\n- Level up for each successful protection.\n- If the Obsession dies, instantly level up.",
-    "attribute": "- All kills will appear as Serial Killer attacks.\n- Can *never* attack their Obsession.",
-    "goal": "Kill everyone who opposes you, *except* the Obsession who can be spared.",
-    "extra": "**Note:** The Stalker is a highly experimental role and can be extremely unbalanced. Any game which contains the Stalker can be voted to not be logged in the bulletin board.\n**See Also:**\nInformation of each Level: `.r st <level>`",
-    "subtext": {
-      "1": [
-        "Stalker - Level 1",
-        "(Night Immunity & Detection Immunity)\n\nThe Stalker can choose to either attack a player like a Serial Killer, or watch the Obsession.\nIf the Obsession is attacked by anything weaker than Unstoppable, the Stalker will give the Obsession Special Immunity, and deal a Normal Attack towards the attacker."
-      ],
-      "2": [
-        "Stalker - Level 2",
-        "(Night Immunity & Detection Immunity & Roleblock Immunity)\n\nThe Stalker will now counterattack roleblockers, similar to a Serial Killer."
-      ],
-      "3": [
-        "Stalker - Level 3",
-        "(SPECIAL Immunity & Control Immunity & Roleblock Immunity)\n\nOnce the Stalker reaches Level 3, the Obsession will instantly know that they have a Stalker.\nThe Stalker will now deal a Special Attack towards their victim.\n"
-      ],
-      "4": [
-        "Stalker - Level 4",
-        "(SPECIAL Immunity & Control Immunity & Roleblock Immunity)\n\nOnce the Stalker reaches Level 4, the Logbook will announce this event.\nThe Stalker will now also attack their victim's visitors, similar to a Demoman.\nThe Stalker will no longer be able to protect the Obsession, meaning the only way to level up is to kill the Obsession, but only by the hands of other players."
-      ],
-      "5": [
-        "Stalker - Level 5 (FINAL)",
-        "(INVINCIBILITY)\n\nOnce the Stalker reaches Level 5, the Logbook will announce this event.\nThe Stalker will now deal Unstoppable Attacks towards their victim and also all their visitors."
-      ]
-    }
-  },
-  "survivor": {
-    "name": "Survivor (surv)",
-    "alignment": "Neutral Benign",
-    "ability": "- Barricade the house. 4 uses.",
-    "attribute": "- Night Immunity when barricaded.",
-    "goal": "Survive to the end of the game."
-  },
   "witch": {
     "name": "Witch",
     "alignment": "Neutral Evil",
@@ -389,32 +370,5 @@
     "alignment": "Town Killing",
     "ability": "- Go on Alert, giving yourself Special Immunity and killing all incoming visitors. 3 uses.",
     "attribute": "- Control Immunity\n- Roleblock Immunity"
-  },
-  
-  
-  
-  "cultleader": {
-    "name": "Cult Leader (cl)",
-    "alignment": "Cult Killing",
-    "ability": "- Attack a player.\n- Decide who to sacrifice.",
-    "attribute": "- Control Immunity\n- Roleblock Immunity\n- Access to Cult chat."
-  },
-  "monk": {
-    "name": "Monk",
-    "alignment": "Cult Support (from Bodyguard, Crusader, Landlord)",
-    "ability": "- Day: Fasten talismen on a player's house.",
-    "attribute": "- Victim cannot talk or perform action during the night.\n- All actions targeting the victim will fail.\n- Talisman cannot be counter-attacked.\n- Cannot select kidnapped players.\n- Access to Cult chat."
-  },
-  "nurse": {
-    "name": "Nurse (nur)",
-    "alignment": "Cult Conversion (from Doctor)",
-    "ability": "- Curse a player. 2 uses.",
-    "attribute": "- Victims won't know they are cursed.\n- When a cursed player is killed at night, they will be instantly resurrected and converted.\n- Detection Immunity\n- Control Immunity\n- Roleblock Immunity\n- Access to Cult chat."
-  },
-  "sorceress": {
-    "name": "Sorceress (sorc)",
-    "alignment": "Cult Support (from Witch)",
-    "ability": "- Control a player, forcing them to visit another player.",
-    "attribute": "- Victims won't know who they were forced to visit.\n- Will know victim's role.\n- Will know if victim has Control Immunity.\n- Night Immunity *until* attacked once.\n- Detection Immunity\n- Control Immunity\n- Roleblock Immunity\n- Access to Cult chat."
   }
 }
