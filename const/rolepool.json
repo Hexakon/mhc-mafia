@@ -1,0 +1,83 @@
+{
+  "roles": {
+    "mafia": {
+      "killing": ["ambusher", "godfather", "machinist", "mafioso", "poisoner", "sniper"],
+      "deception": ["anesthetist", "coroner", "disguiser", "framer", "hypnotist", "janitor", "forger", "signmaker"],
+      "support": ["blackmailer", "consort", "inspector", "kidnapper", "lurker"]
+    },
+    "neutral": {
+      "killing": ["arsonist", "demolitionist", "juggernaut", "serialkiller"],
+      "evil": ["bountyhunter", "delinquent", "lunatic", "witch"],
+      "benign": ["amnesiac", "guardianangel", "secretary", "survivor"],
+      "chaos": ["anomaly", "cultist", "hitman", "jigsaw"]
+    },
+    "town": {
+      "investigative": ["agent", "detective", "lookout", "sheriff", "tracker"],
+      "protective": ["bodyguard", "doctor", "knight", "landlord"],
+      "killing": ["enforcer", "exorcist", "interrogator", "veteran"],
+      "support": ["attorney", "driver", "escort", "medium", "resurrector"],
+      "leader": ["captain", "marshal", "mayor"]
+    }
+  },
+
+  "factionNames": [
+    "the Town",
+    "the Mafia",
+    "Serial Killers",
+    "Arsonists",
+    "Demomen",
+    "Juggernauts",
+    "the Cult"
+  ],
+
+  "alias": {
+    "amb": "ambusher",
+    "anes": "anesthetist",
+    "ane": "anesthetist",
+    "bm": "blackmailer",
+    "cons": "consort",
+    "cor": "coroner",
+    "disg": "disguiser",
+    "farmer": "framer",
+    "gf": "godfather",
+    "hyp": "hypnotist",
+    "hypno": "hypnotist",
+    "jan": "janitor",
+    "kid": "kidnapper",
+    "mac": "machinist",
+    "mach": "machinist",
+    "maf": "mafioso",
+    "mas": "masquerader",
+    "masq": "masquerader",
+    "amne": "amnesiac",
+    "arso": "arsonist",
+    "bh": "bountyhunter",
+    "del": "delinquent",
+    "dem": "demolitionist",
+    "demo": "demolitionist",
+    "ga": "guardianangel",
+    "jugg": "juggernaut",
+    "sec": "secretary",
+    "sk": "serialkiller",
+    "stalk": "stalker",
+    "surv": "survivor",
+    "att": "attorney",
+    "bg": "bodyguard",
+    "crus": "crusader",
+    "det": "detective",
+    "doc": "doctor",
+    "enf": "enforcer",
+    "esc": "escort",
+    "ex": "exorcist",
+    "ll": "landlord",
+    "lo": "lookout",
+    "int": "interrogator",
+    "mar": "marshal",
+    "med": "medium",
+    "res": "resurrector",
+    "vet": "veteran",
+    "cl": "cultleader",
+    "nur": "nurse",
+    "sorc": "sorceress"
+  }
+}

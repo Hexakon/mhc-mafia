@@ -12,23 +12,29 @@ Referred to as: `$index`
 Referred to as: `$function`
 - Commonly used functions throughout the bot.
 
-## rolelist.json
-(Referred to as: `$roleList`)
-- All role names sorted by category.
+## rolepool.json
+(Referred to as: `$role`)
+- All role names sorted by mafia/neutral/town, then category.
+- Also includes `unique` roles, `factionNames` and `alias`es.
 - Replaces `roles.json` and `roletype.json` (use `Object.keys()` instead) in legacy versions.
 
 ## rolemeta.json
 (Referred to as: `$roleMeta`)
-- All meta role data used internally for edge case comparisons and by `.role`.
+- All role properties used internally for edge case comparisons and by documentation commands.
 - Separated into `always` and "state" (`0`, `1` etc) objects, where `always` always applies, but only one "state" object applies at a time as specified in the `data/ability.json` file.
+- All state objects must specify the value of a changing property, even if it uses the default value.
 - Observed keys (and default value if undefined):
   - `vote`: Defaults to **1**.
-  - `attack`: Defaults to **0**. Includes attack tier-equivalent abilities.
+  - `attack`: Defaults to **0**.
   - `defense`: Defaults to **0**.
   - `detection`: Defaults to **false**.
   - `control`: Defaults to **false**.
   - `roleblock`: Defaults to **false**.
   - `absence`: Defaults to **false**.
+- `condition` objects describe spawn conditions for the role in the initial role list.
+  - `unique`: Defaults to **false**. If true, the role may only spawn once.
+  - `incompatible`: No default value. List of roles that must not spawn in order for this role to spawn.
+  - `require`: No default value. List of roles that must spawn in order for this role to spawn.
 
 ## roleinfo.json
 (Referred to as: `$roleInfo`)

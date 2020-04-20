@@ -42,6 +42,19 @@
     "roles": "All roles",
     "alias": "`.w`"
   },
+  "dict": {
+    "name": "dict",
+    "type": "Documentation",
+    "description": "Displays an explanation for a specific ingame keyword or community-made term.",
+    "usage": "`.dict` for the full list of words available for lookup.\n`.dict <word>` to see the explanation of the word. Case insensitive, space omittable.",
+    "alias": "`.k`, `.keyword`"
+  },
+  "k": {
+    "redirect": "dict"
+  },
+  "keyword": {
+    "redirect": "dict"
+  },
   "r": {
     "redirect": "role"
   },
@@ -51,8 +64,8 @@
   "role": {
     "name": "role",
     "type": "Documentation",
-    "description": "Displays detailed information of a specific role. Shorthand names are permitted. Omit spaces for roles whose names are 2 words or longer.",
-    "usage": "`.role <rolename>`",
+    "description": "Displays detailed information of a specific role. Shorthand names (aliases) are permitted. Case insensitive, space omittable.",
+    "usage": "`.role <rolename> [desc]` to get a copyable version of the role card's description text.\n`.role <rolename> info` to get the classic ability and attribute lists for the role.\n`.role <rolename> meta` to get ingame meta data about the role.\n`.role <rolename> inv` to get investigation results on this role. (Not working yet)\n`.role <rolename> card` to get the URL for the role card. (Not working yet)\n`.role <rolename> wiki` to get the wiki link for the role. (Not working yet)",
     "alias": "`.r`"
   },
   "rolelist": {
