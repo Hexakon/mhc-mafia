@@ -13,10 +13,10 @@
     },
     "town": {
       "investigative": ["agent", "detective", "lookout", "sheriff", "tracker"],
-      "protective": ["bodyguard", "doctor", "knight", "landlord"],
+      "protective": ["bodyguard", "doctor", "landlord"],
       "killing": ["enforcer", "exorcist", "interrogator", "veteran"],
       "support": ["attorney", "driver", "escort", "medium", "resurrector"],
-      "leader": ["captain", "marshal", "mayor"]
+      "leader": ["marshal", "mayor"]
     }
   },
 

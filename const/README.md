@@ -13,7 +13,7 @@ Referred to as: `$function`
 - Commonly used functions throughout the bot.
 
 ## rolepool.json
-(Referred to as: `$role`)
+(Referred to as: `$rolepool`)
 - All role names sorted by mafia/neutral/town, then category.
 - Also includes `unique` roles, `factionNames` and `alias`es.
 - Replaces `roles.json` and `roletype.json` (use `Object.keys()` instead) in legacy versions.

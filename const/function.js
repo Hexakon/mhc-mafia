@@ -87,27 +87,42 @@ module.exports = {
       return newArray;
     }
 
-    const $role = require.main.require("./const/role.json"); // requiring role information.
+    const $rolepool = require.main.require("./const/rolepool.json"); // requiring role information.
 
     let rolelistNew = []; // empty array of new roles.
 
-    function generate (role) { // function for generating the role (used for recursion in line 95)
+    function generate (role) { // function for generating the role (used for recursion in line 107)
       let roleNew = "" // new role to be returned.
 
-      if ($role.categories.includes(role)) { // if role entry is a category, get a random item from the category.
-        var category = (role === "any") ? $role.rolelist : $role[role]
-        // note: conditional operator: before colon is if expression is true, after colon is false
+      if ($rolepool.categories.includes(role)) { // if role entry is a category, get a random item from the category.
+        let category; // get the full list of roles from the specified pool(s).
+        if (role.endsWith("any")) { // any-any role, or faction-specific any subcategory
+          // note: conditional operator: before colon is if expression is true, after colon is false
+          let cycle = (role.startsWith("t")) ? [$rolepool.roles.town]
+          : (role.startsWith("m")) ? [$rolepool.roles.mafia]
+          : (role.startsWith("n")) ? [$rolepool.roles.neutral]
+          : [$rolepool.roles.town, $rolepool.roles.mafia, $rolepool.roles.neutral]
+
+          for (let faction of cycle) { // loop through each faction object. (compatible with "any-any" slot this way)
+            for (let i in faction) { // loop through each role in the faction.
+              category = category.concat(faction[i]) // add them to the list.
+            }
+          }
+        } else {
+          category = $rolepool[role]
+        }
+        
         roleNew = category[Math.floor(Math.random() * category.length)];
       }
 
       // if role entry is an alias of a role, get its full role name.
-      if (Object.keys($role.alias).includes(role)) roleNew = $role.alias[role];
+      if (Object.keys($rolepool.alias).includes(role)) roleNew = $rolepool.alias[role];
 
       // if two of the same unique roles exist, OR if primelist has already occupied the role, reroll.
-      if (($role.unique.includes(roleNew) && rolelist.filter(roleNew => roleNew )) || rolelist.includes(roleNew)) generate();
+      if (($rolepool.unique.includes(roleNew) && rolelist.filter(roleNew => roleNew )) || rolelist.includes(roleNew)) generate();
 
       // if primelist[i] is already a full role name, use full role name.
-      if ($role.rolelist.includes(role)) roleNew = role;
+      if ($rolepool.rolelist.includes(role)) roleNew = role;
 
       return roleNew
     }
@@ -123,7 +138,7 @@ module.exports = {
       // "entries()" array method returns an array iterator with index-value pairs
       for (let [index, roleNew] of rolelistNew.filter(role => role === "exorcist").entries()) {
         // tests if roleNew was generated from a category slot. If it is NOT (return true as the category does not exist), the role is unaltered to allow the situation to exist in fixed setups.
-        roleNew = (typeof $role[rolelist[index]] === "undefined") ? roleNew : $role[rolelist[index]][Math.floor(Math.random() * rolelist[index].length)];
+        roleNew = (typeof $rolepool[rolelist[index]] === "undefined") ? roleNew : $rolepool[rolelist[index]][Math.floor(Math.random() * rolelist[index].length)];
         // rolelist[index] = the "category" in that slot.
       }
     }
@@ -135,7 +150,7 @@ module.exports = {
 
       // same logic as above
       for (let [index, roleNew] of shuffledList.entries()) {
-        roleNew = (typeof $role[rolelist[index]] === "undefined") ? roleNew : $role[rolelist[index]][Math.floor(Math.random() * rolelist[index].length)];
+        roleNew = (typeof $rolepool[rolelist[index]] === "undefined") ? roleNew : $rolepool[rolelist[index]][Math.floor(Math.random() * rolelist[index].length)];
       }
 
     }
