@@ -1,8 +1,8 @@
 {
   "roles": {
     "mafia": {
-      "killing": ["ambusher", "godfather", "machinist", "mafioso", "poisoner", "sniper"],
-      "deception": ["anesthetist", "coroner", "disguiser", "framer", "hypnotist", "janitor", "forger", "signmaker"],
+      "killing": ["ambusher", "godfather", "mafioso", "poisoner", "sniper"],
+      "deception": ["anesthetist", "coroner", "disguiser", "framer", "hypnotist", "janitor", "forger", "signposter"],
       "support": ["blackmailer", "consort", "inspector", "kidnapper", "lurker"]
     },
     "neutral": {
