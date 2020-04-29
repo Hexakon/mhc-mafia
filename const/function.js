@@ -88,6 +88,10 @@ function rolegen(setup) { // The ultimate function to generate role lists.
   let rolelistNew = []; // empty array of new roles.
 
   setup = shuffle(setup); // shuffle the original setup
+  
+  /*setup.filter(item => {
+    if (Object.keys($roleMeta).includes(item)) return true
+  }).forEach*/
 
   setup.forEach(input => { // for every role slot in the original list (setup), generate a role.
     
@@ -130,29 +134,37 @@ function rolegen(setup) { // The ultimate function to generate role lists.
       }
 
       pool = shuffle(pool) // first, shuffle the order of the roles within the pool.
-      console.log(pool)
+      console.log("final pool for slot: "+pool)
 
-      for (let role of shuffle(pool)) { // start from the first role in the pool, and proceed to the next if it is impossible.
+      for (let role of pool) { // start from the first role in the pool, and proceed to the next if it is impossible.
         
         console.log("Testing role: "+role)
 
-        // condition 1: if the role is unique, and the list already has the role, move on to the next.
-         try{ if ($roleMeta[role].condition.unique === true && rolelistNew.contains(role)) continue; }
-         catch(e) {}
-        
-        // condition 2: if the role is incompatible with others, and the list already has one of those roles, move on to the next.
-        try{ if (typeof $roleMeta[role].condition.incompatible !== undefined && $roleMeta[role].condition.incompatible.some(i => rolelistNew.contains(i))) continue; }
-        catch(e) {}
+        if ('condition' in $roleMeta[role]) {
 
-        // condition 3: if the role requires other roles, and the list does NOT have those roles, move on to the next.
-        try{ if (typeof $roleMeta[role].condition.require !== undefined && $roleMeta[role].condition.require.some(i => !rolelistNew.contains(i))) continue; }
-        catch(e) {}
+          let condition = $roleMeta[role].condition
+
+          // condition 1: if the role is unique, and the list already has the role, move on to the next.
+          if ('unique' in condition) if (condition.unique === true && rolelistNew.includes(role)) continue;
+          console.log("- condition 1 passed")
+          
+          // condition 2: if the role is incompatible with others, and the list already has one of those roles, move on to the next.
+          if ('incompatible' in condition) if (condition.incompatible.some(i => rolelistNew.includes(i))) continue;
+          console.log("- condition 2 passed")
+
+          // condition 3: if the role requires other roles, and the list does NOT have those roles, move on to the next.
+          if ('require' in condition) if (condition.require.some(i => !rolelistNew.includes(i))) continue;
+          console.log("- condition 3 passed")
+
+        }
 
         // if all conditions pass, the role is added.
         rolelistNew.push(role);
         break;
       }
     }
+    
+    console.log("Added role: "+rolelistNew[rolelistNew.length-1])
   });
 
   return rolelistNew;

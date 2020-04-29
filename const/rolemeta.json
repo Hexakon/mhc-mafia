@@ -77,7 +77,7 @@
       "attack": 3
     }
   },
-  "signmaker": {
+  "signposter": {
     "always": {
     }
   },
@@ -110,7 +110,7 @@
       "attack": 1
     }
   },
-  "demoman": {
+  "demolitionist": {
     "condition": {
       "unique": true
     },
